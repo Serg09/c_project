@@ -1,15 +1,23 @@
 <html>
   <head>
     <title>Purchase Button Test</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
     <script src="crowdscribed_1.0.0.js"></script>
+    <style type="text/css">
+      .purchase-tile {
+        display: inline-block;
+        border: 1px solid #999;
+        border-radius: .5em;
+        margin: 1em;
+        padding: 1em;
+      }
+    </style>
   </head>
   <body>
     <h1>Purchase Button Test</h1>
-    <div id="purchase"></div>
-    <script type="text/javascript">
-      crowdscribed.ready(function() {
-        $('#purchase').purchaseButton();
-      });
-    </script>
+    <div ng-app="crowdscribed">
+      <purchase-tile ng-init="sku = '0000000000001'"></purchase-tile>
+    </div>
   </body>
 </html>
