@@ -1,5 +1,5 @@
 -content_for :header do
-  =javascript_include_tag 'crowdscribed_1.0.0.js'
+  %script{ src: '/crowdscribed_1.0.0.js' }
 .row
   .col-md-4
     -if book_version.cover_image_id

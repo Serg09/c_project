@@ -2,24 +2,14 @@
   // set up the crowdscried object
   function registerStartup(fn) {
     if (typeof window.jQuery === 'undefined') {
-
-      console.log("no jQuery, cannot register startup script");
-
       return false
     }
     window.jQuery(fn);
-
-    console.log("registered startup script");
-
     return true;
   }
 
   function tryFunction(fn, count, max) {
     if(fn()) {
-
-      console.log("successfully called function");
-      console.log(fn);
-
       return true;
     } else if (count < max) {
       window.setTimeout(function() {
@@ -49,15 +39,13 @@
     }
 
     window.jQuery.fn.purchaseButton = function() {
-      if (window.angular === 'undefined') {
-        console.log("tried to insert directive before angular module is defined");
-      } else {
-        var div = $(document.createElement("DIV"));
-        div.attr("purchase-tile", true);
-        this.append(div);
+      this.attr("ng-app", "crowdscribed");
 
-        console.log("appended purchase-tile div");
-      }
+      var div = $(document.createElement("DIV"));
+      div.attr("purchase-tile", true);
+      this.append(div);
+
+      console.log("appended purchase-tile div");
 
       return this;
     };
@@ -69,17 +57,13 @@
       return false
     }
 
-    console.log("define angular module");
-
-    // Angulr initialization
-    angular.module('crowdscribed')
+    angular.module('crowdscribed', [])
       .directive('purchaseTile', function() {
         return {
           template: '<a href="#">Purchase</a>'
         }
       })
 
-    console.log("registered angular directive 'purchaseTile'");
     return true;
   }
 
@@ -88,18 +72,16 @@
     var scriptElem = document.createElement("SCRIPT");
     scriptElem.setAttribute("src", src);
     document.body.appendChild(scriptElem);
-
-    console.log("inserted script tag for " + src);
   }
 
   function registerLibraries() {
     var libraries = [
       {
-        src: "https://code.jquery.com/jquery-3.1.1.slim.min.js",
+        src: "https://code.jquery.com/jquery-3.1.1.js",
         test: function() { return typeof window.jQuery !== 'undefined' }
       },
       {
-        src: "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js",
+        src: "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js",
         test: function() { return typeof window.angular !== 'undefined' }
       }
     ];
