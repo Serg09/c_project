@@ -1,3 +1,5 @@
+-content_for :header do
+  =javascript_include_tag 'crowdscribed_1.0.0.js'
 .row
   .col-md-4
     -if book_version.cover_image_id
@@ -16,6 +18,11 @@
           =book_version.long_or_short_description.html_safe
         -else
           %p=book_version.long_or_short_description
+    .row
+      .col-sm-12
+        #purchase
+        :javascript
+          $('#purchase').purchaseButton();
     -if can?(:update, book_version.book) && book_version.book.campaigns.none? && book_version.approved?
       .row
         .col-sm-12
