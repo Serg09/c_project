@@ -18,7 +18,12 @@
         headers: {
           'Authorization': 'Token token=fde100e5505140c5a93cede29321cd9c'
         }
-      }).then(callback);
+      }).then(function(response) {
+        callback(response.data);
+      }, function(error) {
+        console.log("Unable to get the product.");
+        console.log(error);
+      });
     }
     return this;
   }])
