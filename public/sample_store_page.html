@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample Book Page</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="http://localhost:3030/javascripts/crowdscribed_1.0.0.js"></script>
+    <script src="https://js.braintreegateway.com/js/braintree-2.27.0.min.js"></script>
+    <style type="text/css">
+      .payment-tile {
+        display: inline-block;
+        border: 1px solid #999;
+        border-radius: .5em;
+        margin: 1em;
+        padding: 1em;
+      }
+    </style>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Sample Store Page</h1>
+    <p>
+      This is a sample page what shows the full purchase experience.
+    </p>
+    <div ng-app="crowdscribed">
+      <payment-tile />
+    </div>
+  </body>
+</html>
