@@ -12,6 +12,7 @@
 #  status            :string           default("pending"), not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  comments          :text
 #
 
 class BookVersion < ActiveRecord::Base

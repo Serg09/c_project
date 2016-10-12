@@ -2,14 +2,16 @@
 #
 # Table name: bios
 #
-#  id         :integer          not null, primary key
-#  author_id  :integer          not null
-#  text       :text             not null
-#  photo_id   :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  links      :text
-#  status     :string           default("pending"), not null
+#  id          :integer          not null, primary key
+#  author_id   :integer          not null
+#  text        :text             not null
+#  photo_id    :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  links       :text
+#  status      :string           default("pending"), not null
+#  author_type :string(100)      not null
+#  comments    :text
 #
 
 class Bio < ActiveRecord::Base

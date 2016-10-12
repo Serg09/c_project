@@ -2,10 +2,11 @@
 #
 # Table name: books
 #
-#  id         :integer          not null, primary key
-#  author_id  :integer          not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  author_id   :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  author_type :string(100)      not null
 #
 
 class Book < ActiveRecord::Base
