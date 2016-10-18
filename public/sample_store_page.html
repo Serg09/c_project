@@ -11,7 +11,7 @@
     <script src="https://js.braintreegateway.com/web/3.3.0/js/hosted-fields.min.js"></script>
     <script src="http://underscorejs.org/underscore-min.js"></script>
     <style type="text/css">
-      .payment-tile {
+      .payment-tile, .cart-tile {
         display: inline-block;
         border: 1px solid #999;
         border-radius: .5em;
@@ -34,6 +34,32 @@
       .form-group {
         margin-top: 1em;
         margin-bottom: 1em;
+      }
+
+      .cart-tile {
+      }
+      .cart-tile table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .cart-tile table tr td,th {
+        padding: 0.5em;
+      }
+
+      .number-column {
+        text-align: right;
+      }
+      .text-column {
+        text-align: left;
+      }
+      .summary-row {
+        font-weight: bold;
+      }
+      .summary-row td {
+        border-top: 1px solid #333;
+      }
+      .header-row th {
+        border-bottom: 1px solid #333;
       }
     </style>
   </head>
