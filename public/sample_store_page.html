@@ -11,7 +11,7 @@
     <script src="https://js.braintreegateway.com/web/3.3.0/js/hosted-fields.min.js"></script>
     <script src="http://underscorejs.org/underscore-min.js"></script>
     <style type="text/css">
-      .payment-tile, .cart-tile {
+      .payment-tile, .cart-tile, .address-tile {
         display: inline-block;
         border: 1px solid #999;
         border-radius: .5em;
@@ -61,6 +61,26 @@
       .header-row th {
         border-bottom: 1px solid #333;
       }
+
+      .form-control {
+        width: 100%;
+      }
+
+      #city-group {
+        display: inline-block;
+        width: 55%;
+        padding-right: 1em;
+      }
+      #state-group {
+        display: inline-block;
+        width: 10%;
+        padding-right: 1em;
+      }
+      #postal-code-group {
+        display: inline-block;
+        width: 20%;
+        padding-right: 1em;
+      }
     </style>
   </head>
   <body>
@@ -71,6 +91,9 @@
     <div ng-app="crowdscribed">
       <div>
         <cart-tile />
+      </div>
+      <div>
+        <address-tile />
       </div>
       <div>
         <payment-tile />
