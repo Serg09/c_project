@@ -5,7 +5,11 @@
     <title>Sample Book Page</title>
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
     <script src="http://localhost:3030/javascripts/crowdscribed_1.0.0.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.3.0/js/client.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.3.0/js/hosted-fields.min.js"></script>
+    <script src="http://underscorejs.org/underscore-min.js"></script>
     <style type="text/css">
       .purchase-tile {
         display: inline-block;
@@ -23,7 +27,7 @@
       The script in the header, and the HTML below, enable the purchase behavior.
     </p>
     <div ng-app="crowdscribed">
-      <purchase-tile ng-init="sku = '0000000000001'"></purchase-tile>
+      <purchase-tile ng-init="sku = '123456'"></purchase-tile>
     </div>
   </body>
 </html>
