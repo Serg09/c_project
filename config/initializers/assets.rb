@@ -22,7 +22,6 @@ Rails.application.config.assets.precompile += %w(bios.js
                                                  payments.js
                                                  subscribers.js
                                                  users.js).map{|c| "admin/#{c}"}
-Rails.application.config.assets.precompile += %w(crowdscribed_1.0.0.js)
 # Angular apps
 Rails.application.config.assets.precompile += %w(controllers/contribution_controller.js)
 
