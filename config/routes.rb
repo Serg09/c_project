@@ -132,6 +132,7 @@ Rails.application.routes.draw do
   get 'pages/covenant'
   get 'pages/piatt'
 
+  get 'purchase', to: 'pages#purchase', as: :purchase
   get 'authors', to: 'bios#browse', as: :browse_authors
   get 'users', to: 'users#show', as: :user_root
   get 'admin', to: 'admin/users#index', as: :admin_root
