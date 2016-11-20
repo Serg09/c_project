@@ -43,9 +43,12 @@ Clone the repo
 git clone git@bitbucket.org:crowdscribed/crowdscribed.git
 ```
 
-If you see an error like this: ```Connection to bitbucket.org closed by remote host.
+If you see an error like this:
+```
+Connection to bitbucket.org closed by remote host.
 fatal: Could not read from remote repository.
-Please make sure you have the correct access rights and the repository exists.```
+Please make sure you have the correct access rights and the repository exists.
+```
  
 Check firewall settings. SSH connection should be set to port 22 
 
