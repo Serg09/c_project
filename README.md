@@ -11,9 +11,15 @@ http://www.crowdscribed.com/
 sudo apt-get install postgresql postgresql-contrib
 sudo -u postgres createuser --superuser $USER
 sudo -u postgres psql
+```
+Add a new role "app_user"
+```
+CREATE ROLE app_user SUPERUSER CREATEDB CREATEROLE LOGIN;
+```
+[Install PostgreSQL](https://help.ubuntu.com/community/PostgreSQL) client and server;
 
+```
 sudo apt-get install postgresql-client
-
 sudo apt-get install postgresql-server-dev-9.5 # or whatever version is current
 ```
 
@@ -36,13 +42,13 @@ Clone the repo
 ```
 git clone git@bitbucket.org:crowdscribed/crowdscribed.git
 ```
-* if got error:
-*Connection to bitbucket.org closed by remote host.
-fatal: Could not read from remote repository.
-Please make sure you have the correct access rights and the repository exists.* 
 
+If you see an error like this: ```Connection to bitbucket.org closed by remote host.
+fatal: Could not read from remote repository.
+Please make sure you have the correct access rights and the repository exists.```
  
-* Check firewall settings. SSH connection should be set to port 22 
+Check firewall settings. SSH connection should be set to port 22 
+
 
 Install gems
 ```
@@ -53,18 +59,6 @@ Setup the database
 ```
 rake db:setup
 ```
-
- If got error:
-*FATAL:  role "app_user" does not exist_, need to create a new postgres database role.*
-
-
-* Start postgres psql:
-	`sudo -u postgres psql`
-* Check all running roles: `\du`
-* Create a new role **"app_user"** as Superuser with permissions: DB, new role, and Login (no password) by running command:
-    	`CREATE ROLE app_user SUPERUSER CREATEDB CREATEROLE LOGIN;`   
-* Run `rake db:setup`
-
 
 Start the web server and the resque workers. (You'll need to have the [heroku tookbelt](https://blog.heroku.com/the_heroku_toolbelt) installed.)
 ```
