@@ -1,18 +1,19 @@
 =content_for :page_title do
   Books
+
 .container.container-default
-  -@books.each_slice(4) do |books|
+  -@books.each_slice(4) do |row|
     .row
-      -books.each do |book|
+      -row.each do |book|
         .col-md-3
-          -if book.cover_image_id
-            .book{ title: book.title }
-              .author.sr-only= book.author.full_name
-              .title.sr-only= book.title
-              =link_to book_version_path(book.id) do
-                %img.img-rounded.img-responsive{ src: image_path(book.cover_image_id, width: 256, height: 384), alt: book.title }
-          -else
-            =link_to book_version_path(book.id) do
-              .book.naked-book
-                .title= book.title
-                .author= book.author.full_name
+          -#.col-xs-4
+          =link_to book_version_path(book) do
+            -if book.cover_image_id.present?
+              .author-name.text-center
+                %span{ 'data-record-field' => 'Title'}= book.title
+                %img{ src: image_path(book.cover_image_id,), class: 'img-rounded img-responsive', alt: book.title }
+          %p.text-center.book-half Click the cover image above or the title belowe for more
+          =link_to bio_path(book) do
+            -if book
+              .author-name.text-center.book-half
+                %span{ 'data-record-field' => 'Author'}= book.author.full_name
