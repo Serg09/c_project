@@ -42,6 +42,13 @@ RSpec.describe Book, type: :model do
     end
   end
 
+  describe '#products' do
+    it 'is a collection of products associated with the book' do
+      book = Book.new attributes
+      expect(book).to have(0).products
+    end
+  end
+
   describe '#new_version!' do
     let (:book) { FactoryGirl.create(:approved_book) }
     let (:attributes) do
