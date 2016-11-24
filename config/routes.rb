@@ -108,6 +108,7 @@ Rails.application.routes.draw do
         patch :refund
       end
     end
+    resources :products, only: [:index]
     resources :subscribers, only: [:index]
   end
 
