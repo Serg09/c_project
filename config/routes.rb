@@ -74,8 +74,9 @@ Rails.application.routes.draw do
     end
     resources :bios, only: [:edit, :update]
     resources :books, only: [:edit, :destroy] do
-      resources :products, only: [:index]
+      resources :products, only: [:index, :new, :create]
     end
+    resources :products, only: [:index, :destroy]
     resources :book_versions, only: :update
     resources :inquiries, only: [:index, :show] do
       member do
@@ -110,7 +111,6 @@ Rails.application.routes.draw do
         patch :refund
       end
     end
-    resources :products, only: [:index]
     resources :subscribers, only: [:index]
   end
 

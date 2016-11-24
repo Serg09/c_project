@@ -1,4 +1,3 @@
-@wip
 Feature: Link a product to a book
   As an administrator
   In order to make a book available for sale
@@ -26,13 +25,13 @@ Feature: Link a product to a book
    When I click the link button within the 1st book row
    Then I should see "Products for Selling Online" within the page title
 
-   When I click "Add" within the main content
-   Then I should see "New Book-Product Link" within the page title
+   When I click "Add" within the admin content
+   Then I should see "New Product for Selling Online" within the page title
 
    When I fill in "SKU" with "0000000000001"
    And I fill in "Caption" with "Hardback"
    And I click "Save"
-   Then I should see "The product link has been created" within the notification area
+   Then I should see "The product link was created successfully" within the notification area
    And I should see "Products for Selling Online" within the page title
    And I should see the following products table
      | Caption  | SKU           |
