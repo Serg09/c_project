@@ -20,8 +20,8 @@ Feature: Link a product to a book
     When I fill in "Title" with "Online"
     And I click the search button
     Then I should see the following books table
-     | Title          | Author         |
-     | Selling Online | Bette R. Price |
+     | Title          | Author   |
+     | Selling Online | John Doe |
 
    When I click the link button within the 1st book row
    Then I should see "Products for Selling Online" within the page title
