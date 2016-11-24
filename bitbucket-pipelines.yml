@@ -11,4 +11,5 @@ pipelines:
         script: # Modify the commands below to build your repository.
           - bundler --version
           - bundle install
+          - bundle exec rake db:migrate
           - bundle exec rake
