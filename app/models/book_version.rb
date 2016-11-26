@@ -12,6 +12,7 @@
 #  status            :string           default("pending"), not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  comments          :text
 #
 
 class BookVersion < ActiveRecord::Base
@@ -30,7 +31,7 @@ class BookVersion < ActiveRecord::Base
   validate :genres, :cannot_have_more_than_3
 
   attr_accessor :cover_image_file, :sample_file
-  delegate :author, :active_campaign, to: :book
+  delegate :author, :active_campaign, :products, to: :book
 
   def long_or_short_description
     long_description.present? ? long_description : short_description

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <title>Sample Book Page</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
+    <script src="http://localhost:3030/javascripts/crowdscribed_1.0.0.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.3.0/js/client.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.3.0/js/hosted-fields.min.js"></script>
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.0/ui-bootstrap-tpls.min.js"></script>
+    <style type="text/css">
+      .purchase-tile {
+        display: inline-block;
+        border: 1px solid #999;
+        border-radius: .5em;
+        margin: 1em;
+        padding: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sample Book Page</h1>
+    <p>
+      This is a sample page what would be showing a book that you could purchase.
+      The script in the header, and the HTML below, enable the purchase behavior.
+    </p>
+    <script type="text/javascript">
+      $(function() {
+        csConfiguration.push('purchasePath', '/sample_store_page.html')
+      });
+    </script>
+    <div ng-app="crowdscribed">
+      <purchase-tile data-sku="'0000000000001'" data-caption="'Hardback'"></purchase-tile>
+      <purchase-tile data-sku="'0000000000002'" data-caption="'Paperback'"></purchase-tile>
+    </div>
+  </body>
+</html>

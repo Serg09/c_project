@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <title>Sample Book Page</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
+    <script src="http://localhost:3030/javascripts/crowdscribed_1.0.0.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.3.0/js/client.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.3.0/js/hosted-fields.min.js"></script>
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.0/ui-bootstrap-tpls.min.js"></script>
+    <style type="text/css">
+      .payment-tile, .cart-tile, .address-tile {
+        display: inline-block;
+        border: 1px solid #999;
+        border-radius: .5em;
+        margin: 1em;
+        padding: 1em;
+        width: 90%;
+      }
+
+      fieldset {
+        border-radius: 0.5em;
+      }
+
+      #card-number,#cvv,#expiration-date {
+        height: 24px;
+        border: 1px solid #999;
+        padding-left: 1em;
+        padding-right: 1em;
+      }
+
+      .form-group {
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+
+      .cart-tile {
+      }
+      .cart-tile table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .cart-tile table tr td,th {
+        padding: 0.5em;
+      }
+
+      .number-column {
+        text-align: right;
+      }
+      .text-column {
+        text-align: left;
+      }
+      .summary-row {
+        font-weight: bold;
+      }
+      .summary-row td {
+        border-top: 1px solid #333;
+      }
+      .header-row th {
+        border-bottom: 1px solid #333;
+      }
+
+      .form-control {
+        width: 100%;
+      }
+
+      #city-group {
+        display: inline-block;
+        width: 55%;
+        padding-right: 1em;
+      }
+      #state-group {
+        display: inline-block;
+        width: 10%;
+        padding-right: 1em;
+      }
+      #postal-code-group {
+        display: inline-block;
+        width: 20%;
+        padding-right: 1em;
+      }
+
+      .has-error .control-label {
+        color: red;
+        font-weight: bold;
+      }
+      .has-error .form-control {
+        border-color: red;
+      }
+
+      .modal {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 99;
+        background: #333;
+        opacity: 0.5;
+      }
+      .modal-dialog {
+        z-index: 100;
+        position: absolute;
+        top: 100px;
+        left: 33%;
+        width: 33%;
+        border: 1px solid #000;
+        border-radius: 1em;
+        padding: 2em;
+        background: #FFF;
+        opacity: 1;
+      }
+      .modal-content {
+      }
+      .modal-header {
+      }
+      .modal-body {
+      }
+      .modal-footer {
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sample Store Page</h1>
+    <p>
+      This is a sample page that shows the full purchase experience.
+    </p>
+    <div ng-app="crowdscribed">
+      <div>
+        <cart-tile />
+      </div>
+      <div>
+        <address-tile />
+      </div>
+      <div>
+        <payment-tile />
+      </div>
+      <div>
+        <confirmation-tile />
+      </div>
+    </div>
+  </body>
+</html>

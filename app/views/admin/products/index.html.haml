@@ -1,0 +1,43 @@
+=content_for :page_title do
+  Products
+  -if @book
+    for
+    %i= @book.public_title
+
+.container.container-default
+  .row
+    .col-md-6
+      -unless @book
+        %h2 Search Books by Title
+        =form_tag(admin_products_path, method: :get) do
+          .form-group
+            =label_tag :title, 'Title', class: 'control-label'
+            .input-group
+              =text_field_tag :title, params[:title], class: 'form-control'
+              %span.input-group-btn
+                %button.btn.btn-primary.search-button{ type: :submit }
+                  %span.glyphicon.glyphicon-search{ 'aria-hidden' => true, title: 'Click here to search for books with the specified title.' }
+      -if @book_versions
+        %h3 Books
+        %table#books-table.table.table-striped
+          %tr
+            %th Title
+            %th Author
+            %th &nbsp;
+          -@book_versions.each do |book_version|
+            %tr
+              %td= book_version.title
+              %td= book_version.author.full_name
+              %td
+                =link_to admin_book_products_path(book_version.book_id), class: 'btn btn-xs btn-info link-button', title: 'Click here to see products for this title.' do
+                  %span.glyphicon.glyphicon-link{ 'aria-hidden' => true }
+      -if @book
+        %table#products-table.table.table-striped
+          %tr
+            %th Caption
+            %th SKU
+          -@products.each do |product|
+            %tr
+              %td= product.caption
+              %td= product.sku
+        =link_to 'Add', new_admin_book_product_path(@book), class: 'btn btn-primary', title: 'Click here to link a product to this book.'

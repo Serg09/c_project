@@ -17,6 +17,7 @@ SimpleNavigation::Configuration.run do |navigation|
         manage.item :manage_authors, 'Authors', admin_authors_path
         manage.item :manage_rewards, 'Rewards', admin_house_rewards_path
         manage.item :reward_fulfillment, 'Reward fulfillment', admin_fulfillments_path
+        manage.item :products, 'Products', admin_products_path
       end
       primary.item :sign_out, 'Sign out', destroy_administrator_session_path, method: :delete
     end

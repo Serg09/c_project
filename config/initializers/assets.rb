@@ -14,6 +14,7 @@ Rails.application.config.assets.precompile += %w(bios.js books.js book_versions.
 Rails.application.config.assets.precompile += %w(bios.js
                                                  books.js
                                                  book_versions.js
+                                                 products.js
                                                  campaigns.js
                                                  confirmations.js
                                                  fulfillments.js

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905030200) do
+ActiveRecord::Schema.define(version: 20161124212405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -224,6 +224,17 @@ ActiveRecord::Schema.define(version: 20160905030200) do
   end
 
   add_index "payments", ["external_id"], name: "index_payments_on_external_id", unique: true, using: :btree
+
+  create_table "products", force: :cascade do |t|
+    t.integer  "book_id",                null: false
+    t.string   "caption",    limit: 256, null: false
+    t.string   "sku",        limit: 40,  null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "products", ["book_id", "caption"], name: "index_products_on_book_id_and_caption", unique: true, using: :btree
+  add_index "products", ["sku"], name: "index_products_on_sku", unique: true, using: :btree
 
   create_table "rewards", force: :cascade do |t|
     t.integer  "campaign_id",                                           null: false

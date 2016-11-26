@@ -1,0 +1,22 @@
+@import "twitter/bootstrap/bootstrap";
+
+/*
+ Consider embedding bootstrap classes
+ in the templates to make it easy for 
+ clients to use bootstrap
+ */
+.purchase-tile {
+  display: inline-block;
+  border: 1px solid #999;
+  border-radius: 1em;
+  padding: 1em;
+  .caption {
+    font-weight: bold;
+    text-align: center;
+  }
+  .price {
+    font-size: 150%;
+    font-weight: bold;
+    padding: @padding-large-vertical @padding-large-horizontal;
+  }
+}

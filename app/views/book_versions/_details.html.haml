@@ -1,3 +1,10 @@
+=content_for :header do
+  %script{type: 'text/javascript',
+          src: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js'}
+  %script{type: 'text/javascript',
+          src: 'http://localhost:3030/javascripts/crowdscribed_1.0.0.js'}
+  %script{type: 'text/javascript',
+          src: 'http://localhost:3030/javascripts/ui-bootstrap-tpls-2.2.0.min.js'}
 .row
   .col-md-4
     -if book_version.cover_image_id
@@ -16,6 +23,16 @@
           =book_version.long_or_short_description.html_safe
         -else
           %p=book_version.long_or_short_description
+    -if book_version.products.any?
+      .row
+        .col-sm-12
+          :coffee
+            $(->
+              csConfiguration.push 'purchasePath', '/purchase'
+              )
+          #purchase-this-book{ 'ng-app' => 'crowdscribed' }
+            -book_version.products.each do |product|
+              %purchase-tile{ data: { sku: "\"#{product.sku}\"", caption: "\"#{product.caption}\"" } }
     -if can?(:update, book_version.book) && book_version.book.campaigns.none? && book_version.approved?
       .row
         .col-sm-12
