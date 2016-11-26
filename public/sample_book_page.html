@@ -10,6 +10,7 @@
     <script src="https://js.braintreegateway.com/web/3.3.0/js/client.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.3.0/js/hosted-fields.min.js"></script>
     <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.0/ui-bootstrap-tpls.min.js"></script>
     <style type="text/css">
       .purchase-tile {
         display: inline-block;
@@ -26,8 +27,14 @@
       This is a sample page what would be showing a book that you could purchase.
       The script in the header, and the HTML below, enable the purchase behavior.
     </p>
+    <script type="text/javascript">
+      $(function() {
+        csConfiguration.push('purchasePath', '/sample_store_page.html')
+      });
+    </script>
     <div ng-app="crowdscribed">
-      <purchase-tile ng-init="sku = '123456'"></purchase-tile>
+      <purchase-tile data-sku="'0000000000001'" data-caption="'Hardback'"></purchase-tile>
+      <purchase-tile data-sku="'0000000000002'" data-caption="'Paperback'"></purchase-tile>
     </div>
   </body>
 </html>

@@ -10,6 +10,7 @@
     <script src="https://js.braintreegateway.com/web/3.3.0/js/client.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.3.0/js/hosted-fields.min.js"></script>
     <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.0/ui-bootstrap-tpls.min.js"></script>
     <style type="text/css">
       .payment-tile, .cart-tile, .address-tile {
         display: inline-block;
@@ -90,14 +91,36 @@
         border-color: red;
       }
 
-      /*
-      form input.ng-invalid.ng-touched {
-        border-color: red;
+      .modal {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 99;
+        background: #333;
+        opacity: 0.5;
       }
-      form input.ng-valid.ng-touched {
-        border-color: green;
+      .modal-dialog {
+        z-index: 100;
+        position: absolute;
+        top: 100px;
+        left: 33%;
+        width: 33%;
+        border: 1px solid #000;
+        border-radius: 1em;
+        padding: 2em;
+        background: #FFF;
+        opacity: 1;
       }
-      */
+      .modal-content {
+      }
+      .modal-header {
+      }
+      .modal-body {
+      }
+      .modal-footer {
+      }
     </style>
   </head>
   <body>
@@ -114,6 +137,9 @@
       </div>
       <div>
         <payment-tile />
+      </div>
+      <div>
+        <confirmation-tile />
       </div>
     </div>
   </body>
