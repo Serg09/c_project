@@ -29,6 +29,7 @@
           :coffee
             $(->
               csConfiguration.push 'purchasePath', '/purchase'
+              csConfiguration.push 'authToken', 'fde100e5505140c5a93cede29321cd9c'
               )
           #purchase-this-book{ 'ng-app' => 'crowdscribed' }
             -book_version.products.each do |product|

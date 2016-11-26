@@ -14,6 +14,10 @@
   Purchase
 
 .container.container-default
+  :coffee
+    $(->
+      csConfiguration.push 'authToken', 'fde100e5505140c5a93cede29321cd9c'
+      )
   %div{ 'ng-app' => 'crowdscribed'}
     .row
       .col-md-8
