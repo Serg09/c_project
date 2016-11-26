@@ -23,10 +23,10 @@
                 =link_to book_campaigns_path(book), :class => 'btn btn-xs btn-success campaigns-button', :title => can_campaign?(book) ? 'Click here to manage campaigns for this book.' : 'You need an approved bio and the book must be approved in order to campaign for it.', :dislabled => !can_campaign?(book) do
                   %span.glyphicon.glyphicon-usd{ 'arial-hidden' => true }
       =link_to 'Add', new_book_path, class: 'btn btn-primary', title: 'Click here to add a new book.'
-    -if user_signed_in? && current_user.id == @author.id && @books.any?
-      .col-md-6
-      %p Click the pencil button to edit the book details.
-      %p Click the dollar sign to create a crowdfunding campaign.
-    -else
-      .col-md-6
-      %p Click on the Add button to add a book.
+    .col-md-6
+      -if user_signed_in? && current_user.id == @author.id
+        -if @books.any?
+          %p Click the pencil button to edit the book details.
+          %p Click the dollar sign to create a crowdfunding campaign.
+        -else
+          %p Click on the Add button to add a book.
