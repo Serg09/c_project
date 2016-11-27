@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   before_filter :authenticate_user!, only: [ :index, :edit, :update, :new, :create ]
   before_filter :load_author, only: [:index, :new, :create]
   before_filter :load_book, only: [:show, :edit, :update]
+  before_action :first_time_visit, unless: -> { cookies[:first_visit] }
   respond_to :html
 
   def browse
@@ -98,5 +99,10 @@ class BooksController < ApplicationController
     else
       root_path
     end
+  end
+
+  def first_time_visit
+    cookies.permanent[:first_visit] = 1
+    @first_visit = true
   end
 end
