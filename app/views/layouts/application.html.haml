@@ -11,6 +11,7 @@
     -if content_for :header
       =yield :header
     = csrf_meta_tags
+
   %body
     =render 'shared/navigation'
     #main-content
@@ -22,6 +23,15 @@
       =render 'flash' if flash.any? || flash_test?
 
       =yield
+
+    -#%instructions
+      .container
+        .row
+          .col-md-3
+            -if content_for :instructional
+              =yield :instructional
+
+          =yield
 
     %footer
       .container
