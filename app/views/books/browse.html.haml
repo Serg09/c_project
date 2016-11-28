@@ -1,8 +1,8 @@
 =content_for :page_title do
   Books
-
 .container.container-default
-  -@books.each_slice(3) do |books|
+  %p.text-center Click the cover image or the title for more.
+  -@books.each_slice(4) do |books|
     .row
       -books.each do |book|
         .col-md-3
@@ -22,7 +22,3 @@
               .book.naked-book
                 .title= book.title
                 .author= book.author.full_name
-
-      .row
-        .col-md-3
-          %Click on this link to be taken to a web application 101 class for people that don't know how to use a mouse.
