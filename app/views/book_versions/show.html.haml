@@ -6,7 +6,8 @@
     .col-md-12
       -if can?(:update, @book_version) && @book_version.pending?
         .alert.alert-info
-          This book is under review. We will review it as soon as we can.
+          %p This book is under review. We will review it as soon as we can.
+          %p The HTML code you see in the preview is for security purposes only and will not appear once the page is published.
       %h1#book-title= @book_version.title
       -if @book_version.author.active_bio.present?
         %h2= link_to @book_version.author.full_name, bio_path(@book_version.author.active_bio)
