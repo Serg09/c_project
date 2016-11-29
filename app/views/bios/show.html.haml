@@ -7,7 +7,8 @@
       -if can?(:update, @bio)
         -if @bio.pending?
           .alert.alert-info
-            This bio is under review. We will review it as soon as we can.
+            %p This bio is under review. We will review it as soon as we can.
+            %p HTML tags are present in the review, but once approved by an administrator, they will not appear on the profile or book pages on the site.
         -if @bio.rejected?
           .alert.alert-danger
             This bio was rejected. Please adjust it in order to conform to our
