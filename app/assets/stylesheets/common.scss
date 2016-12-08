@@ -218,6 +218,15 @@ table.footnotes {
   margin-bottom: -0.3em;
 }
 
+.author-photo{
+  height:384px;
+  width: 384px;
+  object-fit: cover;
+  position: relative;
+  margin-top: 3em;
+  border-radius: 1.5em;
+}
+
 .button-panel {
   margin-top: 1em;
 }
