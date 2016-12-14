@@ -8,9 +8,14 @@
         .col-md-4.author-record
           =link_to bio_path(bio) do
             -if bio.photo_id.present?
-              %img{ src: image_path(bio.photo_id), class: 'img-rounded img-responsive' }
-            .author-name.text-center
-              %span{ 'data-record-field' => 'first_name'}= bio.author.first_name
-              %span{ 'data-record-field' => 'last_name'}= bio.author.last_name
-            .caption.text-center
-              %small Visit This Author's Page
+              %img.author-photo{ src: image_path(bio.photo_id), class: 'img-rounded img-responsive center-block' }
+                .author-name.text-center
+                  %span{ 'data-record-field' => 'first_name'}= bio.author.first_name
+                  %span{ 'data-record-field' => 'last_name'}= bio.author.last_name
+              .caption.text-center
+                %small Visit This Author's Page
+            -else
+              =link_to bio_path(bio) do
+                .naked-author-frame.author-name.img-rounded.center-block
+                  .author_name= bio.author.full_name
+                  %small Visit This Author's Page
