@@ -32,11 +32,20 @@ a {
 
 .naked-book {
   height: 384px;
+  max-width: 256px;
   border: 3px solid #00ADDE;
   border-radius: 1.5em;
   padding: 1.5em;
   text-align: center;
   font-family: courier;
+  margin-top: 2.1em;
+}
+
+.covered-book{
+  min-height:384px;
+  max-height:384px;
+  width: 256px;
+  object-fit: cover;
 }
 
 .title {
