@@ -36,8 +36,12 @@
           %tr
             %th Caption
             %th SKU
+            %th &nbsp;
           -@products.each do |product|
             %tr
               %td= product.caption
               %td= product.sku
+              %td
+                =link_to admin_product_path(product.id), class: 'btn btn-xs btn-danger delete-button', title: 'Click here to unlink this product from this book.', method: :delete, 'data-confirm' => 'Are you sure you want to remove the association between this book and this product?' do
+                  %span.glyphicon.glyphicon-remove{ 'aria-hidden' => true }
         =link_to 'Add', new_admin_book_product_path(@book), class: 'btn btn-primary', title: 'Click here to link a product to this book.'

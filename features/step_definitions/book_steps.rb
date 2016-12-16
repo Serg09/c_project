@@ -35,3 +35,7 @@ Then /^I should see the following books$/ do |expected_table|
   end
   expected_table.diff!(actual_table)
 end
+
+Given /^(#{BOOK}) is associated with SKU "([^"]+)" with caption "([^"]+)"$/ do |book, sku, caption|
+  book.products.create! sku: sku, caption: caption
+end
