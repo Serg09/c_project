@@ -1,6 +1,7 @@
 class Admin::ProductsController < ApplicationController
   before_action :authenticate_administrator!
   before_action :load_book, only: [:new, :create]
+  before_action :load_product, only: :destroy
   layout 'admin'
   respond_to :html
 
@@ -20,7 +21,21 @@ class Admin::ProductsController < ApplicationController
     respond_with @product, location: admin_book_products_path(@book)
   end
 
+  def destroy
+    if @product.destroy
+      flash[:notice] = 'The association between the product and the book was removed successfully.'
+    else
+      flash[:warn] = 'Unable to remove the association between the product and the book.'
+    end
+    redirect_to admin_book_products_path(@book)
+  end
+
   private
+
+  def load_product
+    @product = Product.find(params[:id])
+    @book = @product.book
+  end
 
   def load_book
     @book = Book.find(params[:book_id])

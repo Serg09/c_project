@@ -39,6 +39,21 @@ RSpec.describe Admin::ProductsController, type: :controller do
         end.to change(book.products, :count).by(1)
       end
     end
+
+    describe 'delete :destroy' do
+      let!(:product) { FactoryGirl.create :product, book: book }
+
+      it 'deletes the product' do
+        expect do
+          delete :destroy, id: product
+        end.to change(book.products, :count).by -1
+      end
+
+      it 'redirects to the product index for the book' do
+        delete :destroy, id: product
+        expect(response).to redirect_to admin_book_products_path(book.id)
+      end
+    end
   end
 
   context 'for an unauthenticated user' do
@@ -66,6 +81,21 @@ RSpec.describe Admin::ProductsController, type: :controller do
         expect do
           post :create, book_id: book, product: attributes
         end.not_to change(Product, :count)
+      end
+    end
+
+    describe 'delete :destroy' do
+      let!(:product) { FactoryGirl.create :product, book: book }
+
+      it 'does not delete the product' do
+        expect do
+          delete :destroy, id: product
+        end.not_to change(Product, :count)
+      end
+
+      it 'redirects to the home page' do
+        delete :destroy, id: product
+        expect(response).to redirect_to root_path
       end
     end
   end
