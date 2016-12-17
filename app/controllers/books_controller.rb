@@ -5,7 +5,7 @@ class BooksController < ApplicationController
   respond_to :html
 
   def browse
-    @books = BookVersion.approved.by_date
+    @books = BookVersion.approved.by_date.select{|b| b.author.active_bio}
   end
 
   def index
