@@ -4,34 +4,25 @@
 section.welcome {
   padding: 3em 0;
   h1 {
-    color: #FFF;
+    color: #000000;
     text-transform: capitalize;
     font-weight: 400;
     font-style: normal;
     font-size: 230%;
     line-height: 48px;
+    padding-bottom: 0.3em;
   }
-  color: #fff;
+  p {
+    margin-top: 2em;
+  }
+  color: #000000;
   font-family: "Quicksand", Arial, Helvetica, sans-serif;
   font-size: 130%;
   line-height: 24px;
 }
 
 #top-section {
-  @include section-background;
-  background-image: url(<%= asset_path 'guy_in_sport_coat.jpg' %>);
-  height: 550px;
-}
-
-#middle-section {
-  @include section-background;
-  background-image: url(<%= asset_path 'city.jpg' %>);
-  padding-bottom: 3em;
-}
-
-#bottom-section {
-  @include section-background;
-  background-image: url(<%= asset_path 'type.jpg' %>);
+  background-color: #ffffff;
 }
 
 .larger {
@@ -41,12 +32,18 @@ section.welcome {
 
 .quote-image {
   @include center-block;
-  margin-top: 200px;
+  margin-top: 60px;
 }
 
 .sign-up-btn {
   width: 12em;
   @extend .hero-btn;
+}
+
+.welcome-icon {
+  width: 7em;
+  padding-bottom: .5em;
+  @include center-block;
 }
 
 .help-image {
