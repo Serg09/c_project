@@ -11,17 +11,15 @@
         =image_tag 'quote.png', class: 'quote-image'
         -unless AppSetting.sign_in_disabled?
           =link_to 'Sign Up Free', new_user_registration_path, class: 'sign-up-btn btn btn-lg btn-primary'
+        .text-center
+          %h1 I AM A...
     .row
-      .text-center
-        %p Click a button below
-        %h1 I AM A...
-    .row
-      .col-md-2.col-md-offset-3
-        =link_to pages_author_portal_path, target: '_blank' do
+      .col-md-1.col-md-offset-8
+        =link_to pages_author_portal_path do
           =image_tag  'pages/author_icon.png', class: 'welcome-icon'
-      .col-md-2
-        =link_to pages_what_we_do_path, target: '_blank' do
+      .col-md-1
+        =link_to pages_what_we_do_path do
           =image_tag 'pages/publisher_icon.png', class: 'welcome-icon'
-      .col-md-2
-        =link_to pages_why_model_works_path, target: '_blank' do
+      .col-md-1
+        =link_to pages_readers_path do
           =image_tag 'pages/reader_icon.png', class: 'welcome-icon'
