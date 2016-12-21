@@ -2,36 +2,28 @@
 @import 'common';
 
 section.welcome {
-  padding: 3em 0;
+  padding: 1em 0;
   h1 {
-    color: #FFF;
+    color: #000000;
     text-transform: capitalize;
     font-weight: 400;
     font-style: normal;
-    font-size: 230%;
+    font-size: 170%;
     line-height: 48px;
+    padding-bottom: -.1em;
   }
-  color: #fff;
+  p {
+    margin-top: .8em;
+    margin-bottom: -.8em;
+  }
+  color: #000000;
   font-family: "Quicksand", Arial, Helvetica, sans-serif;
   font-size: 130%;
   line-height: 24px;
 }
 
 #top-section {
-  @include section-background;
-  background-image: url(<%= asset_path 'guy_in_sport_coat.jpg' %>);
-  height: 550px;
-}
-
-#middle-section {
-  @include section-background;
-  background-image: url(<%= asset_path 'city.jpg' %>);
-  padding-bottom: 3em;
-}
-
-#bottom-section {
-  @include section-background;
-  background-image: url(<%= asset_path 'type.jpg' %>);
+  background-color: #ffffff;
 }
 
 .larger {
@@ -41,12 +33,20 @@ section.welcome {
 
 .quote-image {
   @include center-block;
-  margin-top: 200px;
 }
 
 .sign-up-btn {
   width: 12em;
   @extend .hero-btn;
+}
+
+.welcome-icon {
+  padding-bottom: .5em;
+  @include center-block;
+}
+
+.youtube-border {
+  border:3px solid #62a2c4;
 }
 
 .help-image {

@@ -115,6 +115,7 @@ Rails.application.routes.draw do
   end
 
   get 'pages/welcome'
+  get 'pages/readers'
   get 'pages/package_pricing'
   get 'pages/book_prices'
   get 'pages/a_la_carte_pricing'
