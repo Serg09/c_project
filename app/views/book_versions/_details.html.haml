@@ -27,8 +27,8 @@
       .row
         .col-sm-12
           :javascript
-            fulfillmentHost = '#{ENV['FULFILLMENT_HOST']}';
-            fulfillmentAuthToken = '#{ENV['FULFILLMENT_AUTH_TOKEN']}';
+            window.fulfillmentHost = '#{ENV['FULFILLMENT_HOST']}';
+            window.fulfillmentAuthToken = '#{ENV['FULFILLMENT_AUTH_TOKEN']}';
           :coffee
             $(->
               csConfiguration.push 'fulfillmentHost', fulfillmentHost
