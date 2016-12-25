@@ -14,9 +14,13 @@
   Purchase
 
 .container.container-default
+  :javascript
+    fulfillmentHost = '#{ENV['FULFILLMENT_HOST']}';
+    fulfillmentAuthToken = '#{ENV['FULFILLMENT_AUTH_TOKEN']}';
   :coffee
     $(->
-      csConfiguration.push 'authToken', 'fde100e5505140c5a93cede29321cd9c'
+      csConfiguration.push 'fulfillmentHost', fulfillmentHost
+      csConfiguration.push 'authToken', fulfillmentAuthToken
       )
   %div{ 'ng-app' => 'crowdscribed'}
     .row
