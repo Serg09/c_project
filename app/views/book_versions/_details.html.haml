@@ -1,4 +1,8 @@
 =content_for :header do
+  :javascript
+    window.CROWDSCRIBED_HOST = "#{ENV['FULFILLMENT_HOST']}";
+    window.CROWDSCRIBED_AUTH_TOKEN = "#{ENV['FULFILLMENT_AUTH_TOKEN']}";
+    window.CROWDSCRIBED_PURCHASE_PATH = '/purchase';
   %script{type: 'text/javascript',
           src: 'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js'}
   %script{type: 'text/javascript',
@@ -26,18 +30,6 @@
     -if book_version.products.any?
       .row
         .col-sm-12
-          :javascript
-            window.fulfillmentHost = '#{ENV['FULFILLMENT_HOST']}';
-            window.fulfillmentAuthToken = '#{ENV['FULFILLMENT_AUTH_TOKEN']}';
-          :coffee
-            $(->
-              csConfiguration.push 'fulfillmentHost', fulfillmentHost
-
-              console.log 'set config value fulfillmentHOst to ' + fulfillmentHost
-
-              csConfiguration.push 'authToken', fulfillmentAuthToken
-              csConfiguration.push 'purchasePath', '/purchase'
-              )
           #purchase-this-book{ 'ng-app' => 'crowdscribed' }
             -book_version.products.each do |product|
               %purchase-tile{ data: { sku: "\"#{product.sku}\"", caption: "\"#{product.caption}\"" } }
