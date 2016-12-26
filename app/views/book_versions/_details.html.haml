@@ -32,6 +32,9 @@
           :coffee
             $(->
               csConfiguration.push 'fulfillmentHost', fulfillmentHost
+
+              console.log 'set config value fulfillmentHOst to ' + fulfillmentHost
+
               csConfiguration.push 'authToken', fulfillmentAuthToken
               csConfiguration.push 'purchasePath', '/purchase'
               )
