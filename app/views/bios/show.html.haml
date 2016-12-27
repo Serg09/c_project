@@ -14,24 +14,25 @@
             This bio was rejected. Please adjust it in order to conform to our
             =link_to 'community standards', pages_community_standards_path, target: '_blank'
             and resubmit it.
-      %h1= @bio.author.full_name
+      %h1.text-center= @bio.author.full_name
   .row
-    .col-md-6
+    .col-md-3.col-md-offset-1
       -if @bio.photo_id.present?
-        %img{ src: image_path(@bio.photo_id), class: 'img-rounded img-responsive' }
-
+        %img.author-details.center-block{ src: image_path(@bio.photo_id), class: 'img-rounded img-responsive' }
+      -else
+        .naked-author-details.img-rounded.img-responsive
       -if @bio.usable_links.any?
         %h1 Social Links
         -@bio.usable_links.each do |link|
           =link_to link.url, target: '_blank' do
-            =image_tag "social/#{link.site}.png", class: 'img-circle'
-    .col-md-6
+            =image_tag "social/#{link.site}.png", class: 'img-circle social-links'
+    .col-md-7.author-description-padding
       -if @bio.approved?
         = @bio.text.html_safe
       -else
         %p= @bio.text
   .row
-    .col-md-6
+    .col-md-4.col-md-offset-1
       %p
         -if can? :update, @bio
           =link_to 'Edit', edit_bio_path(@bio), class: 'btn btn-default'
