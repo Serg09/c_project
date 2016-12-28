@@ -39,7 +39,7 @@ class BiosController < ApplicationController
 
   def browse
     @bios = Bio.browsable
-    @bio_rows = @bios.each_slice(3)
+    @bio_rows = @bios.each_slice(5)
   end
 
   def show

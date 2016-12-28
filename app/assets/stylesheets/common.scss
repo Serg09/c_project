@@ -61,7 +61,13 @@ body {
 
 .btn {
   text-transform: uppercase;
+  padding: 8px 15px;
 }
+
+.social-links {
+  margin-bottom: 10px;
+}
+
 
 .hero-btn {
   @include center-block;
@@ -214,4 +220,20 @@ table.footnotes {
 
 .button-panel {
   margin-top: 1em;
+}
+
+.col-md-5ths,
+.col-lg-5ths {
+  position: relative;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+@media (min-width: 992px) {
+  .col-md-5ths {
+    width: 20%;
+    float: left;
+  }
 }

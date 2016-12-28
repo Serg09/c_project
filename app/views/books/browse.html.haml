@@ -1,19 +1,19 @@
 =content_for :page_title do
   Books
-  
+
 .container.container-default
   %p.text-center Click the cover image or the title for more.
-  -@books.each_slice(4) do |books|
+  -@books.each_slice(5) do |books|
     .row
       -books.each do |book|
-        .col-md-3
+        .col-md-5ths
           -if book.cover_image_id
             .book{ title: book.title }
               .author.sr-only= book.author.full_name
               .title.sr-only= book.title
               =link_to book_version_path(book.id) do
                 .text-center
-                  %span.text-center.author-name{ 'data-record-field' => 'Title'}= book.title
+                  %span.author-name.image-row-align{ 'data-record-field' => 'Title'}= book.title
                 %img.covered-book.img-rounded.img-responsive.center-block{ src: image_path(book.cover_image_id), alt: book.title }
             =link_to bio_path(book.author.active_bio) do
               .book-name.text-center
