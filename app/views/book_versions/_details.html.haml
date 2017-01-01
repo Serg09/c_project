@@ -33,8 +33,10 @@
       .row
         .col-sm-12
           #purchase-this-book{ 'ng-app' => 'crowdscribed' }
-            -book_version.products.each do |product|
-              %purchase-tile{ data: { sku: "\"#{product.sku}\"", caption: "\"#{product.caption}\"" } }
+            -if book_version.products.count == 1
+              %purchase-tile{ data: { sku: "\"#{book_version.products.first.sku}\"", caption: "\"#{book_version.products.first.caption}\"" } }
+            -else
+              %multi-purchase-tile{ data: { products: JSON.generate( book_version.products.map{|p| p.as_json only: [:sku, :caption]}) }}
     -if can?(:update, book_version.book) && book_version.book.campaigns.none? && book_version.approved?
       .row
         .col-sm-12
