@@ -184,6 +184,14 @@ table.footnotes {
   }
 }
 
+.note {
+  font-style: italic;
+}
+
+label.required:after {
+  content: " *";
+}
+
 @font-face {
   font-family: Quicksand;
   src: asset-url('Quicksand-Regular.otf');
