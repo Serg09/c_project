@@ -5,21 +5,33 @@
 %section#top-section.welcome
   .container
     .row
-      .col-md-7
+      .col-md-8
         %iframe.center-block.youtube-border{:allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/6apyDnw0jFc?rel=0&amp;showinfo=0", :width => "560"}
-      .col-md-5
-        =image_tag 'quote.png', class: 'quote-image'
+        .embed-responsive.embed-responsive-16by9.youtube-border
+          -#%iframe.embed-responsive-item{:src => "https://www.youtube.com/embed/6apyDnw0jFc"}
+          %iframe.embed-responsive-item{:allowfullscreen => "", :src => "https://www.youtube.com/embed/6apyDnw0jFc"}
+      .col-md-4
+        =image_tag 'quote.png', class: 'quote-image center-block img-responsive'
         -unless AppSetting.sign_in_disabled?
-          =link_to 'Sign Up Free', new_user_registration_path, class: 'sign-up-btn btn btn-lg btn-primary'
-        .text-center
-          %h1 I AM A...
+          =link_to 'Sign Up Free', new_user_registration_path, class: 'sign-up-btn btn btn-lg btn-primary text-center'
+
     .row
-      .col-md-1.col-md-offset-8
+      .col-md-2.col-md-offset-2
         =link_to pages_author_portal_path do
           =image_tag  'pages/author_icon.png', class: 'welcome-icon'
-      .col-md-1
+      .col-md-2.col-md-offset-1
         =link_to pages_what_we_do_path do
           =image_tag 'pages/publisher_icon.png', class: 'welcome-icon'
-      .col-md-1
+      .col-md-2.col-md-offset-1
         =link_to pages_readers_path do
           =image_tag 'pages/reader_icon.png', class: 'welcome-icon'
+
+    .text-center
+      %h3 CLICK ON THE ICON ABOVE THAT BEST REPRESENTS YOU.
+
+    .row
+      .p.text-center.text-uppercase Subscribe to our Newsletter today!
+      -#=link_to 'subscribe here', pages_newsletter_path, class: 'subscribe-btn btn btn-lg btn-warning text-center'
+
+      .row
+        =render 'email_subscribtion_form'

@@ -1,0 +1,27 @@
+.container
+  .row
+    .col-md-8.col-md-offset-2
+      #mailchimp
+        %form#mc-embedded-subscribe-form.validate{:action => "//linkedin.us14.list-manage.com/subscribe/post?u=1b78a29e7b220b343d4d005d3&id=f576a7c897", :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
+          #mc_embed_signup_scroll
+            .row
+              .col-md-5.text-center
+                .mc-field-group
+                  %input#mce-EMAIL.required.email{:name => "EMAIL", :placeholder => "Email", :type => "email", :value => ""}/
+              .col-md-5.text-center
+                .mc-field-group
+                  %input#mce-NAME{:name => "NAME", :type => "text", :placeholder => "Name *Optional", :value => ""}/
+              .col-md-1
+                .clear.text-center
+                  %input#mc-embedded-subscribe.button{:name => "subscribe", :type => "submit", :value => "Subscribe"}/
+
+              .row
+                .col-md-10.text-center
+                  #mce-responses.clear
+                    #mce-error-response.response{:style => "display:none"}
+                    #mce-success-response.response{:style => "display:none"}
+                  %div{"aria-hidden" => "true", :style => "position: absolute; left: -5000px;"}
+                    %input{:name => "b_1b78a29e7b220b343d4d005d3_f576a7c897", :tabindex => "-1", :type => "text", :value => ""}/
+            %script{:src => "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js", :type => "text/javascript"}
+            :javascript
+              (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='NAME';ftypes[1]='text';}(jQuery));var $mcj = jQuery.noConflict(true);

@@ -44,6 +44,7 @@ gem 'wysiwyg-rails'
 gem 'angularjs-rails'
 gem 'ng-rails-csrf'
 gem 'underscore-rails'
+gem 'mailchimp-api', '~> 2.0', '>= 2.0.6'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

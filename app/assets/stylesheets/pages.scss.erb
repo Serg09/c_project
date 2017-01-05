@@ -2,7 +2,7 @@
 @import 'common';
 
 section.welcome {
-  padding: 1em 0;
+  padding: 3em 0;
   h1 {
     color: #000000;
     text-transform: capitalize;
@@ -11,6 +11,15 @@ section.welcome {
     font-size: 170%;
     line-height: 48px;
     padding-bottom: -.1em;
+  }
+  h3 {
+    color: #F90;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 100%;
+    margin-bottom: 3em;
   }
   p {
     margin-top: .8em;
@@ -33,12 +42,49 @@ section.welcome {
 
 .quote-image {
   @include center-block;
+  margin-top: 90px;
 }
 
 .sign-up-btn {
   width: 12em;
   @extend .hero-btn;
+  margin-bottom: 9em;
 }
+
+.subscribe-btn {
+  width: 12em;
+  @extend .hero-btn;
+  margin-bottom: 10px;
+}
+
+#mailchimp {
+  padding: 20px 15px;
+}
+#mailchimp input {
+  border: medium none;
+  color: gray;
+  font-size: 20px;
+  padding: 12px 20px;
+  width: 255px;
+  margin-right: 20px;
+  border: 3px solid #00ADDE;
+  margin-bottom: 5px;
+}
+#mailchimp input.email { background: #fff }
+#mailchimp input.name { background: #fff}
+#mailchimp input[type="submit"] {
+  background: #F90;
+  color: #fff;
+  font-size: 22px;
+  width: 8em;
+  border: 2px solid #F90;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  margin-top: 0px;
+
+}
+#mailchimp input[type="submit"]:hover { color: #F2C94C }
 
 .welcome-icon {
   padding-bottom: .5em;
