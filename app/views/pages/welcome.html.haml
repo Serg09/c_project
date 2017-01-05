@@ -7,9 +7,6 @@
     .row
       .col-md-8
         %iframe.center-block.youtube-border{:allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/6apyDnw0jFc?rel=0&amp;showinfo=0", :width => "560"}
-        .embed-responsive.embed-responsive-16by9.youtube-border
-          -#%iframe.embed-responsive-item{:src => "https://www.youtube.com/embed/6apyDnw0jFc"}
-          %iframe.embed-responsive-item{:allowfullscreen => "", :src => "https://www.youtube.com/embed/6apyDnw0jFc"}
       .col-md-4
         =image_tag 'quote.png', class: 'quote-image center-block img-responsive'
         -unless AppSetting.sign_in_disabled?
@@ -31,7 +28,5 @@
 
     .row
       .p.text-center.text-uppercase Subscribe to our Newsletter today!
-      -#=link_to 'subscribe here', pages_newsletter_path, class: 'subscribe-btn btn btn-lg btn-warning text-center'
-
       .row
         =render 'email_subscribtion_form'
