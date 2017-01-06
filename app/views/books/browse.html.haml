@@ -6,10 +6,9 @@
   -@books.each_slice(5) do |books|
     .row
       -books.each do |book|
-        .col-md-5ths
+        .col-md-5ths.book-container
           -if book.cover_image_id
             .book{ title: book.title }
-              .author.sr-only= book.author.full_name
               .title.sr-only= book.title
               =link_to book_version_path(book.id) do
                 .text-center
@@ -22,4 +21,4 @@
                   .title.author-name= book.title
           =link_to bio_path(book.author.active_bio) do
             .book-name.text-center
-              %span{ 'data-record-field' => 'Author'}= book.author.full_name
+              %span.author{ 'data-record-field' => 'Author'}= book.author.full_name

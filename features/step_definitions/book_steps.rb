@@ -29,7 +29,7 @@ Given /^users have submitted the following books$/ do |table|
 end
 
 Then /^I should see the following books$/ do |expected_table|
-  actual_table = all(:css, '.book').map do |element|
+  actual_table = all(:css, '.book-container').map do |element|
     author, title = ['.author', '.title'].map{|id| element.find(id).text.strip}
     {'Author' => author, 'Title' => title}
   end
