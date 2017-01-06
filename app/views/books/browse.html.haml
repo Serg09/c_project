@@ -19,13 +19,10 @@
               .book-name.text-center
                 %span{ 'data-record-field' => 'Author'}= book.author.full_name
 
-
           -else
-            =link_to book_version_path(book.id) do
-              .book.naked-book.center-block
-                =link_to book_version_path(book.id) do
-                  .text-center
-                    %span.author-name{ 'data-record-field' => 'Title'}= book.title
+            .book.naked-book.center-block
+              =link_to book_version_path(book.id) do
+                .text-center
+                  .title.author-name= book.title
             =link_to bio_path(book.author.active_bio) do
-              .book-name.text-center
-                %span{ 'data-record-field' => 'Author'}= book.author.full_name
+              .author.book-name.text-center= book.author.full_name
