@@ -15,14 +15,11 @@
                 .text-center
                   %span.author-name.image-row-align{ 'data-record-field' => 'Title'}= book.title
                 %img.covered-book.img-rounded.img-responsive.center-block{ src: image_path(book.cover_image_id), alt: book.title }
-            =link_to bio_path(book.author.active_bio) do
-              .book-name.text-center
-                %span{ 'data-record-field' => 'Author'}= book.author.full_name
-
           -else
             .book.naked-book.center-block
               =link_to book_version_path(book.id) do
                 .text-center
                   .title.author-name= book.title
-            =link_to bio_path(book.author.active_bio) do
-              .author.book-name.text-center= book.author.full_name
+          =link_to bio_path(book.author.active_bio) do
+            .book-name.text-center
+              %span{ 'data-record-field' => 'Author'}= book.author.full_name
