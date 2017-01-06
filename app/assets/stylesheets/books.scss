@@ -35,11 +35,10 @@ a {
   max-width: 215px;
   border: 3px solid #00ADDE;
   border-radius: 1.5em;
-  padding: 1.5em;
-  text-align: center;
-  font-family: courier;
-  font-size: 85%;
-  margin-top: 7.2em;
+  padding: 1em;
+  margin-top: 6.5em;
+  margin-bottom: 2em;
+  overflow: hidden;
 }
 
 .covered-book{
@@ -71,7 +70,6 @@ a {
 
 .image-row-align {
   display: flex;
-  justify-content: flex-end;
   flex-direction: column;
   height: 85px;
   margin-right: auto;

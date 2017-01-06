@@ -18,8 +18,14 @@
             =link_to bio_path(book.author.active_bio) do
               .book-name.text-center
                 %span{ 'data-record-field' => 'Author'}= book.author.full_name
+
+
           -else
             =link_to book_version_path(book.id) do
               .book.naked-book.center-block
-                .title= book.title
-                .author= book.author.full_name
+                =link_to book_version_path(book.id) do
+                  .text-center
+                    %span.author-name{ 'data-record-field' => 'Title'}= book.title
+            =link_to bio_path(book.author.active_bio) do
+              .book-name.text-center
+                %span{ 'data-record-field' => 'Author'}= book.author.full_name
