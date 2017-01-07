@@ -93,7 +93,6 @@ GEM
       launchy (~> 2.1)
       mail (~> 2.2)
     erubis (2.7.0)
-    excon (0.54.0)
     execjs (2.6.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -154,9 +153,6 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mailchimp-api (2.0.6)
-      excon (>= 0.16.0)
-      json (>= 1.7.7)
     mime-types (2.6.2)
     mini_portile (0.6.2)
     minitest (5.8.1)
@@ -345,7 +341,6 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   less-rails
-  mailchimp-api (~> 2.0, >= 2.0.6)
   ng-rails-csrf
   pg
   puma
