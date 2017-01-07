@@ -21,7 +21,7 @@
                   #mce-success-response.response.mailchimp-message{:style => "display:none"}
 
                 %div{"aria-hidden" => "true", :style => "position: absolute; left: -5000px;"}
-                  %input{:name => "b_1b78a29e7b220b343d4d005d3_f576a7c897", :tabindex => "-1", :type => "text", :value => ""}/
+                  %input{:name => ENV['MAILCHIMP_OTHER_VALUE'], :tabindex => "-1", :type => "text", :value => ""}/
           %script{:src => "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js", :type => "text/javascript"}
           :javascript
               (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='NAME';ftypes[1]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
