@@ -2,7 +2,8 @@
 @import 'common';
 
 section.welcome {
-  padding: 1em 0;
+  padding-top: 3em;
+  margin-bottom: -2em;
   h1 {
     color: #000000;
     text-transform: capitalize;
@@ -11,6 +12,15 @@ section.welcome {
     font-size: 170%;
     line-height: 48px;
     padding-bottom: -.1em;
+  }
+  h3 {
+    color: #F90;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 100%;
+    margin-bottom: 3em;
   }
   p {
     margin-top: .8em;
@@ -33,11 +43,35 @@ section.welcome {
 
 .quote-image {
   @include center-block;
+  margin-top: 90px;
 }
 
 .sign-up-btn {
   width: 12em;
   @extend .hero-btn;
+  margin-bottom: 9em;
+}
+
+.subscribe-btn {
+  width: 12em;
+  @extend .hero-btn;
+  margin-bottom: 10px;
+}
+
+.mailchimp-form {
+  margin-top: 18px;
+  padding: 26px 20px;
+  max-width: 500px;
+  font-size: 20px;
+}
+
+.mailchimp-message {
+  margin-top: -125px;
+}
+
+.mailchimp-btn {
+  outline: none!important;
+  @extend .sign-up-btn;
 }
 
 .welcome-icon {
