@@ -13,4 +13,5 @@
  *= require jquery-ui
  *= require bootstrap_and_overrides
  *= require common
+ *= require social-share-button
  */

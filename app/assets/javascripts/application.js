@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require social-share-button
 //= require twitter/bootstrap
 //= require bootstrap
 //= require underscore

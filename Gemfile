@@ -44,6 +44,7 @@ gem 'wysiwyg-rails'
 gem 'angularjs-rails'
 gem 'ng-rails-csrf'
 gem 'underscore-rails'
+gem 'social-share-button'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
