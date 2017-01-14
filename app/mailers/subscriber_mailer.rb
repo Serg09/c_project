@@ -3,9 +3,9 @@ class SubscriberMailer < ApplicationMailer
 
   def confirmation(subscriber)
     @subscriber = subscriber
-    @contact_name = 'Josh Linton'
-    @contact_title = 'Vice President of Sales and Marketing'
-    @contact_email = 'josh.linton@crowdscribed.com'
+    @contact_name = 'Christian Piatt'
+    @contact_title = 'President/CEO'
+    @contact_email = 'christian.piatt@crowdscribed.com'
     mail to: subscriber.email, subject: 'Welcome to Crowdscribed!'
   end
 end
