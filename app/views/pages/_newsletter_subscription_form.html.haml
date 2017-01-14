@@ -1,27 +1,46 @@
-.row
-  .col-md-8.col-md-offset-2
-    #mailchimp
-      %form#mc-embedded-subscribe-form.validate{:action => ENV['MAILCHIMP_SUBSCRIPTION_URL'], :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
-        #mc_embed_signup_scroll
-          .row
-            .col-md-5
-              .mc-field-group
-                %input.mailchimp-form.form-control.center-block#mce-EMAIL.required.email{:name => "EMAIL", :placeholder => "Email", :type => "email", :value => ""}/
-            .col-md-5
-              .mc-field-group
-                %input.mailchimp-form.form-control.center-block#mce-NAME{:name => "NAME", :type => "text", :placeholder => "Name (Optional)", :value => "", }/
-            .col-md-1
-              .text-center
-                %input#mc-embedded-subscribe.button{:name => "subscribe", :type => "submit", :value => "Subscribe", class: 'btn btn-lg btn-warning text-center mailchimp-btn'}/
+%p.text-center.text-uppercase Subscribe to our Newsletter today!
+#mailchimp
+  %form#mc-embedded-subscribe-form.validate{:action => ENV['MAILCHIMP_SUBSCRIPTION_URL'], :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
+    .row
+      .col-sm-4.col-sm-offset-1.mc-field-group
+        %label.control-label.sr-only{ for: 'EMAIL' } Email
+        %input#mce-EMAIL.form-control.input-lg.required.email{:name => "EMAIL", :placeholder => "Email", :type => "email", :value => ""}/
+      .col-sm-4.mc-field-group
+        %label.control-label.sr-only{ for: 'NAME' } Name
+        %input#mce-NAME.form-control.input-lg{:name => "NAME", :type => "text", :placeholder => "Name (Optional)", :value => "", }/
+      .col-sm-2
+        %input#mc-embedded-subscribe.btn.btn-lg.mailchimp-btn{:name => "subscribe", :type => "submit", :value => "Subscribe", class: ''}/
 
-            .row
-              .col-md-10.text-center
-                #mce-responses.clear
-                  #mce-error-response.response.mailchimp-message{:style => "display:none"}
-                  #mce-success-response.response.mailchimp-message{:style => "display:none"}
+    %p
+      #mce-responses
+        #mce-error-response.response.mailchimp-message{:style => "display:none"}
+        #mce-success-response.response.mailchimp-message{:style => "display:none"}
 
-                %div{"aria-hidden" => "true", :style => "position: absolute; left: -5000px;"}
-                  %input{:name => ENV['MAILCHIMP_OTHER_VALUE'], :tabindex => "-1", :type => "text", :value => ""}/
-          %script{:src => "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js", :type => "text/javascript"}
-          :javascript
-              (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='NAME';ftypes[1]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
+      %div{"aria-hidden" => "true", :style => "position: absolute; left: -5000px;"}
+        %input{:name => ENV['MAILCHIMP_OTHER_VALUE'], :tabindex => "-1", :type => "text", :value => ""}/
+      %script{:src => "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js", :type => "text/javascript"}
+      :javascript
+          (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='NAME';ftypes[1]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
+
+    -##mc_embed_signup_scroll
+      .row
+        .col-sm-5
+          .mc-field-group
+            %input#mce-EMAIL.form-control.input-lg.required.email{:name => "EMAIL", :placeholder => "Email", :type => "email", :value => ""}/
+        .col-sm-5
+          .mc-field-group
+            %input#mce-NAME.form-control.input-lg{:name => "NAME", :type => "text", :placeholder => "Name (Optional)", :value => "", }/
+        .col-sm-2
+          %input#mc-embedded-subscribe.btn.btn-lg.mailchimp-btn{:name => "subscribe", :type => "submit", :value => "Subscribe", class: ''}/
+
+      .row
+        .col-md-10.text-center
+          #mce-responses
+            #mce-error-response.response.mailchimp-message{:style => "display:none"}
+            #mce-success-response.response.mailchimp-message{:style => "display:none"}
+
+          %div{"aria-hidden" => "true", :style => "position: absolute; left: -5000px;"}
+            %input{:name => ENV['MAILCHIMP_OTHER_VALUE'], :tabindex => "-1", :type => "text", :value => ""}/
+      %script{:src => "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js", :type => "text/javascript"}
+      :javascript
+          (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='NAME';ftypes[1]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
