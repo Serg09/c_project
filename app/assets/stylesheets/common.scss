@@ -265,13 +265,13 @@ ul.tag-list {
   }
 }
 
-.book-details {
+.ssb-icon {
   min-height:400px;
   max-height:400px;
   width: 276px;
   object-fit: cover;
 }
-
+    background: url("social/facebook.png") no-repeat;
 .naked-book-details {
   height: 400px;
   max-width: 276px;
@@ -282,7 +282,7 @@ ul.tag-list {
   font-family: courier;
   margin-top: 2.1em;
 }
-
+  .ssb-twitter {
 // Credit card fields
 .braintree-field {
   height: 34px;
@@ -291,15 +291,9 @@ ul.tag-list {
   padding: {
     left: 1em;
   }
-  -webkit-transition: border-color 160ms;
   transition: border-color 160ms;
   &.braintree-hosted-fields-focused {
     border-color: #777;
   }
-  &.braintree-hosted-fields-invalid {
-    border-color: #843534;
-  }
-  &.braintree-hosted-fields-valid {
-    border-color: #3c763d;
   }
 }

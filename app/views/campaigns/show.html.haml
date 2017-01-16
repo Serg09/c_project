@@ -42,8 +42,8 @@
 
     .row
       .col-md-1.col-md-offset-2
-        = social_share_button_tag(@campaign.book.administrative_title)
-        -#= social_share_button_tag(@campaign.book.administrative_title, :url => new_campaign_contribution_path.book_book_version.active_campaign)
+        = social_share_button_tag(@campaign.book.administrative_title, :url => @root_path)
+        -#= social_share_button_tag(@campaign.book.administrative_title, :url => new_campaign_contribution_path(book_version_path.campaign))
 
 
 
