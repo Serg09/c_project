@@ -1,0 +1,11 @@
+@import 'mixins';
+
+.btn {
+  text-transform: uppercase;
+}
+
+.hero-btn {
+  @include center-block;
+  margin-top: 1em;
+  padding: .8em 2em;
+}

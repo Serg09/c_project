@@ -1,5 +1,5 @@
 @import 'mixins';
-@import 'common';
+@import 'buttons';
 
 section.welcome {
   padding-top: 3em;
@@ -104,7 +104,6 @@ section.welcome {
     border: solid 1px #000;
     text-align: center;
     background: #f4d0a1;
-    font-family: "PT-Sans", Arial, Helvetica, sans-serif;
     line-height: 20px;
     color: #747474;
     p {
@@ -166,7 +165,6 @@ section.welcome {
 
 .a-la-carte {
   color: #747474;
-  font-family: PT-Sans, Arial, Helvetica, sans-serif;
   p {
     margin-bottom: 20px;
     &.action {

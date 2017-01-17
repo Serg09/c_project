@@ -2,23 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-ul.tag-list {
-  list-style-type: none;
-  padding: 1em 0;
-  li {
-    display: inline-block;
-    padding: {
-      top: .2em;
-      bottom: .2em;
-      left: .5em;
-      right: .5em;
-    }
-    border-radius: .5em;
-    background: #00ADDE;
-    color: #FFF;
-  }
-}
-
 .book {
   margin-bottom: 1em;
 }
