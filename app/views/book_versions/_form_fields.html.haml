@@ -5,6 +5,10 @@
       =f.label :title, class: 'control-label'
       =f.text_field :title, class: 'form-control', autofocus: true
       =help_blocks book_resource, :title
+    .form-group{ :class => form_group_class(book_resource, :subtitle) }
+      =f.label :subtitle, class: 'control-label'
+      =f.text_field :subtitle, class: 'form-control', autofocus: true
+      =help_blocks book_resource, :subtitle
     .form-group{ :class => form_group_class(book_resource, :short_description) }
       =f.label :short_description, class: 'control-label'
       =f.text_area :short_description, class: 'form-control wysiwyg', rows: 5

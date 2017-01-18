@@ -1,5 +1,7 @@
 =content_for :page_title do
   =@book_version.title
+  .row
+  %h4=@book_version.subtitle
 
 .container.container-default
   -if @book_version.errors.any?

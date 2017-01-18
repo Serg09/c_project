@@ -64,6 +64,7 @@ class BookVersionsController < ApplicationController
 
   def book_version_params
     params.require(:book_version).permit(:title,
+                                         :subtitle,
                                          :short_description,
                                          :long_description,
                                          :cover_image_file,

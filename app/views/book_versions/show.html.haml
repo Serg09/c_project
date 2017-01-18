@@ -9,6 +9,7 @@
           %p This book is under review. We will review it as soon as we can.
           %p The HTML code you see in the preview is for security purposes only and will not appear once the page is published.
       %h1.text-center#book-title= @book_version.title
+      %h4.text-center#book-subtitle= @book_version.subtitle
       -if @book_version.author.active_bio.present?
         %h2.text-center= link_to @book_version.author.full_name, bio_path(@book_version.author.active_bio)
   =render 'details', book_version: @book_version

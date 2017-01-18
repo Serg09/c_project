@@ -5,6 +5,7 @@
 #  id                :integer          not null, primary key
 #  book_id           :integer          not null
 #  title             :string(255)      not null
+#  subtitle          :string(255)
 #  short_description :string(1000)     not null
 #  long_description  :text
 #  cover_image_id    :integer
@@ -25,6 +26,7 @@ class BookVersion < ActiveRecord::Base
 
   validates_presence_of :book, :title, :short_description
   validates :title, length: { maximum: 255 }
+  validates :subtitle, length: { maximum: 255 }
   validates :short_description, length: { maximum: 1000 }
   validate :sample_file, :must_be_pdf
   validate :cover_image_file, :must_be_image
@@ -40,6 +42,7 @@ class BookVersion < ActiveRecord::Base
   def new_copy
     result = book.versions.new
     [:title,
+     :subtitle,
      :short_description,
      :long_description,
      :cover_image_id,
