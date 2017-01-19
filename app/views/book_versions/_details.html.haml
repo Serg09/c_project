@@ -24,7 +24,7 @@
           %li=genre.name
   .col-md-7
     .row
-      .col-sm-12.book-description-padding
+      .col-sm-12
         -if book_version.approved?
           =book_version.long_or_short_description.html_safe
         -else
