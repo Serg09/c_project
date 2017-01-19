@@ -6,4 +6,10 @@ module BookVersionsHelper
       new_book_book_version_path(book_version.book)
     end
   end
+
+  def product_data(book_version)
+    JSON.generate(book_version.products.map do |p|
+      p.as_json only: [:sku, :caption]
+    end)
+  end
 end

@@ -36,7 +36,7 @@
             -if book_version.products.count == 1
               %purchase-tile{ data: { sku: "\"#{book_version.products.first.sku}\"", caption: "\"#{book_version.products.first.caption}\"" } }
             -else
-              %multi-purchase-tile{ data: { products: JSON.generate( book_version.products.map{|p| p.as_json only: [:sku, :caption]}) }}
+              %multi-purchase-tile{ data: { products: product_data(book_version) }}
     -if can?(:update, book_version.book) && book_version.book.campaigns.none? && book_version.approved?
       .row
         .col-sm-12
