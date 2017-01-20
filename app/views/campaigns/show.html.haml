@@ -40,11 +40,9 @@
   .row
     =link_to 'Back', book_campaigns_path(@campaign.book_id), class: 'btn btn-default', title: 'Click here to return to the list of campaigns.'
 
-    .row
-      .col-md-1.col-md-offset-2
-        = social_share_button_tag(@campaign.book.administrative_title, :url => @root_path)
-        -#= social_share_button_tag(@campaign.book.administrative_title, :url => new_campaign_contribution_path(book_version_path.campaign))
-
+  .row
+    .col-md-4.col-md-offset-4.text-center
+      = social_share_button_tag(@campaign.book.administrative_title, :url => new_campaign_contribution_url(@campaign))
 
 
   .row
