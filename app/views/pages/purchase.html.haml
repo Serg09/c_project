@@ -26,7 +26,8 @@
       .col-md-6
         %p
           %payment-tile
-        %p.note Fields marked with '*' are required.
+        %p.note{ 'ng-hide' => 'submission.isComplete()'}
+          Fields marked with '*' are required.
     .row
       .col-md-8
         %cart-tile
