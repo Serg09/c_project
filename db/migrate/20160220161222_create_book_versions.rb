@@ -18,7 +18,6 @@ class CreateBookVersions < ActiveRecord::Migration
       insert into book_versions(
         book_id,
         title,
-        subtitle,
         short_description,
         long_description,
         cover_image_id,
@@ -30,7 +29,6 @@ class CreateBookVersions < ActiveRecord::Migration
       select
         id,
         title,
-        subtitle,
         short_description,
         long_description,
         cover_image_id,
@@ -44,7 +42,6 @@ class CreateBookVersions < ActiveRecord::Migration
 
     change_table :books do |t|
       t.remove :title
-      t.remove :subtitle
       t.remove :short_description
       t.remove :long_description
       t.remove :cover_image_id
@@ -79,7 +76,6 @@ class CreateBookVersions < ActiveRecord::Migration
     # -----
     change_table :books do |t|
       t.string :title, limit: 255
-      t.string :subtitle, limit: 255
       t.string :short_description, limit: 1000
       t.text :long_description
       t.integer :cover_image_id
@@ -90,7 +86,6 @@ class CreateBookVersions < ActiveRecord::Migration
       select
         book_id,
         title,
-        subtitle,
         short_description,
         long_description,
         cover_image_id,
@@ -102,7 +97,6 @@ class CreateBookVersions < ActiveRecord::Migration
     records.each do |record|
       book = Book.find(record['book_id'])
       book.title = record['title']
-      book.subtitle = record['subtitle']
       book.short_description = record['short_description']
       book.long_description = record['long_description']
       book.cover_image_id = record['cover_image_id']
