@@ -265,6 +265,24 @@ ul.tag-list {
   }
 }
 
+.book-details {
+  min-height:400px;
+  max-height:400px;
+  width: 276px;
+  object-fit: cover;
+}
+
+.naked-book-details {
+  height: 400px;
+  max-width: 276px;
+  border: 3px solid #00ADDE;
+  border-radius: 1.5em;
+  padding: 1.5em;
+  text-align: center;
+  font-family: courier;
+  margin-top: 2.1em;
+}
+
 #top-bar {
   .ssb-icon.ssb-facebook {
     background: url("social/facebook_orange.png") no-repeat;
