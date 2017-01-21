@@ -1,18 +1,13 @@
 #top-bar
   .container
-    -unless AppSetting.sign_in_disabled?
-      .row
-        .col-md-5
-          =link_to 'https://www.facebook.com/crowdscribed/', target: '_blank', class: 'social-icon', title: 'Click here to visit us on Facebook.' do
-            =image_tag 'social/facebook_orange.png'
-          =link_to 'https://twitter.com/crowdscribed/', target: '_blank', class: 'social-icon', title: 'Click here to visit us on Twitter.' do
-            =image_tag 'social/twitter_orange.png'
-          =link_to ' https://www.youtube.com/channel/UC14GLTvfmSlvOhJStQOyJ_A/', target: '_blank', class: 'social-icon', title: 'Click here to visit us on YouTube.' do
-            =image_tag 'social/youtube_orange.png'
-        .col-md-7.text-right
+    .row
+      .col-md-7
+        -if AppSetting.sign_in_disabled?
+          &nbsp;
+        -else
           -if user_signed_in?
-            =link_to current_user.full_name, user_path(current_user)
-            -if !AppSetting.sign_in_disabled?
+            .sign-in-nav
+              =link_to current_user.full_name, user_path(current_user)
               |
               =link_to 'Sign out', destroy_user_session_path, method: :delete, title: 'Click here to end your session.'
           -else
@@ -29,3 +24,15 @@
                   Remember me
               .form-group
                 =submit_tag 'Sign in', class: 'btn btn-default'
+      .col-md-4.text-center
+        =link_to 'https://www.facebook.com/crowdscribed/', target: '_blank', class: 'social-icon', title: 'Click here to visit us on Facebook.' do
+          =image_tag 'social/facebook_orange.png'
+        =link_to 'https://twitter.com/crowdscribed/', target: '_blank', class: 'social-icon', title: 'Click here to visit us on Twitter.' do
+          =image_tag 'social/twitter_orange.png'
+        =link_to ' https://www.youtube.com/channel/UC14GLTvfmSlvOhJStQOyJ_A/', target: '_blank', class: 'social-icon', title: 'Click here to visit us on YouTube.' do
+          =image_tag 'social/youtube_orange.png'
+      .col-md-1.text-right
+        #cart-tile-container
+          #cart-icon
+            =link_to purchase_path do
+              %span.glyphicon.glyphicon-shopping-cart{ 'aria-hidden' => 'hidden' }
