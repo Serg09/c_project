@@ -2,7 +2,9 @@
   .container
     -unless AppSetting.sign_in_disabled?
       .row
-        .col-md-7.col-md-offset-5.text-right
+        .col-md-5
+          =social_share_button_tag("Crowdscribed", :url => "https://www.crowdscribed.com")
+        .col-md-7.text-right
           -if user_signed_in?
             =link_to current_user.full_name, user_path(current_user)
             -if !AppSetting.sign_in_disabled?
