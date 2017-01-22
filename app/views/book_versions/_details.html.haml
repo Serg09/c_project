@@ -22,6 +22,7 @@
       %ul.tag-list
         -book_version.genres.each do |genre|
           %li=genre.name
+    =social_share_button_tag(@book_version.title)
   .col-md-7
     .row
       .col-sm-12
