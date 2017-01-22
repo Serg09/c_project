@@ -306,16 +306,16 @@ ul.tag-list {
 
 #top-bar {
   .ssb-icon.ssb-facebook {
-    background: url("social/facebook_orange.png") no-repeat;
+    background: asset-url("social/facebook_orange.png") no-repeat;
   }
   .ssb-icon.ssb-google_plus {
-    background: url("social/googleplus_orange.png") no-repeat;
+    background: asset-url("social/googleplus_orange.png") no-repeat;
   }
   .ssb-icon.ssb-twitter {
-    background: url("social/twitter_orange.png") no-repeat;
+    background: asset-url("social/twitter_orange.png") no-repeat;
   }
   .ssb-icon.ssb-linkedin {
-    background: url("social/linkedin_orange.png") no-repeat;
+    background: asset-url("social/linkedin_orange.png") no-repeat;
   }
   .ssb-icon {
     width: 30px;
@@ -326,16 +326,16 @@ ul.tag-list {
 
 #main-content {
   .ssb-icon.ssb-facebook {
-    background-image: url("social/facebook_dark.png");
+    background-image: asset-url("social/facebook_dark.png");
   }
   .ssb-icon.ssb-google_plus {
-    background-image: url("social/googleplus_dark.png");
+    background-image: asset-url("social/googleplus_dark.png");
   }
   .ssb-icon.ssb-twitter {
-    background-image: url("social/twitter_dark.png");
+    background-image: asset-url("social/twitter_dark.png");
   }
   .ssb-icon.ssb-linkedin {
-    background-image: url("social/linkedin_dark.png");
+    background-image: asset-url("social/linkedin_dark.png");
   }
   .ssb-icon {
     width: 35px;
