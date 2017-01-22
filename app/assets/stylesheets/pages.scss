@@ -22,7 +22,7 @@ section.welcome {
     font-size: 100%;
   }
   p {
-    margin-top: .8em;
+    margin-top: 1.8em;
   }
   color: #000000;
   font-family: "Quicksand", Arial, Helvetica, sans-serif;
@@ -41,7 +41,7 @@ section.welcome {
 
 .quote-image {
   @include center-block;
-  margin-top: 90px;
+  margin-top: 25px;
 }
 
 .sign-up-btn {
@@ -69,6 +69,7 @@ section.welcome {
 }
 
 .welcome-icon {
+  padding-top: 1.5em;
   padding-bottom: .5em;
   @include center-block;
 }
