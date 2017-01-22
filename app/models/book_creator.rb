@@ -6,6 +6,7 @@ class BookCreator
     :author,
     to: :book
   delegate :title,
+    :subtitle,
     :short_description,
     :long_description,
     :genres,

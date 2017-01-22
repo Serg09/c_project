@@ -32,6 +32,7 @@ class Admin::BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title,
+                                 :subtitle,
                                  :short_description,
                                  :long_description,
                                  :cover_image_file,
