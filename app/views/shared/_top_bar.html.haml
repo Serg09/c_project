@@ -3,7 +3,12 @@
     -unless AppSetting.sign_in_disabled?
       .row
         .col-md-5
-          =social_share_button_tag("Crowdscribed", :url => "https://www.crowdscribed.com")
+          =link_to 'https://www.facebook.com/crowdscribed/', target: '_blank' do
+            =image_tag 'social/facebook_orange.png'
+          =link_to 'https://twitter.com/crowdscribed/', target: '_blank' do
+            =image_tag 'social/twitter_orange.png'
+          =link_to ' https://www.youtube.com/channel/UC14GLTvfmSlvOhJStQOyJ_A/', target: '_blank' do
+            =image_tag 'social/youtube_orange.png'
         .col-md-7.text-right
           -if user_signed_in?
             =link_to current_user.full_name, user_path(current_user)

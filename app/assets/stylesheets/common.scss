@@ -304,26 +304,6 @@ ul.tag-list {
   }
 }
 
-#top-bar {
-  .ssb-icon.ssb-facebook {
-    background: asset-url("social/facebook_orange.png") no-repeat;
-  }
-  .ssb-icon.ssb-google_plus {
-    background: asset-url("social/googleplus_orange.png") no-repeat;
-  }
-  .ssb-icon.ssb-twitter {
-    background: asset-url("social/twitter_orange.png") no-repeat;
-  }
-  .ssb-icon.ssb-linkedin {
-    background: asset-url("social/linkedin_orange.png") no-repeat;
-  }
-  .ssb-icon {
-    width: 30px;
-    height: 30px;
-    margin-top: 3px;
-  }
-}
-
 #main-content {
   .ssb-icon.ssb-facebook {
     background-image: asset-url("social/facebook_dark.png");
