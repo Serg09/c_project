@@ -61,6 +61,10 @@ body {
   clear: both;
 }
 
+.social-icon:visited, .social-icon:active, .social-icon:hover {
+  text-decoration: none;
+}
+
 .social-links {
   margin-bottom: 10px;
 }

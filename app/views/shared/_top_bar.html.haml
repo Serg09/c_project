@@ -3,11 +3,11 @@
     -unless AppSetting.sign_in_disabled?
       .row
         .col-md-5
-          =link_to 'https://www.facebook.com/crowdscribed/', target: '_blank' do
+          =link_to 'https://www.facebook.com/crowdscribed/', target: '_blank', class: 'social-icon', title: 'Click here to visit us on Facebook.' do
             =image_tag 'social/facebook_orange.png'
-          =link_to 'https://twitter.com/crowdscribed/', target: '_blank' do
+          =link_to 'https://twitter.com/crowdscribed/', target: '_blank', class: 'social-icon', title: 'Click here to visit us on Twitter.' do
             =image_tag 'social/twitter_orange.png'
-          =link_to ' https://www.youtube.com/channel/UC14GLTvfmSlvOhJStQOyJ_A/', target: '_blank' do
+          =link_to ' https://www.youtube.com/channel/UC14GLTvfmSlvOhJStQOyJ_A/', target: '_blank', class: 'social-icon', title: 'Click here to visit us on YouTube.' do
             =image_tag 'social/youtube_orange.png'
         .col-md-7.text-right
           -if user_signed_in?
