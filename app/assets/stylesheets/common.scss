@@ -12,10 +12,14 @@
     color: #FFF;
   }
   font-size: 90%;
+
+  .sign-in-nav {
+    margin-top: 8px;
+  }
 }
 
 #main-content {
-  margin-top: 120px;
+  margin-top: 130px;
 }
 
 #admin-content {
@@ -326,4 +330,12 @@ ul.tag-list {
     height: 35px;
     background-size: 100%;
   }
+}
+
+#cart-tile-container {
+  height: 38px;
+}
+
+#cart-icon {
+  margin-top: 11px;
 }
