@@ -21,12 +21,12 @@ class ContributionsController < ApplicationController
     if @contribution.save
       if @fulfillment
         unless @fulfillment.save
-          Rails.logger.warn "Unable to save the the fulfillment #{@fulfillment.inspect}"
+          Rails.logger.warn "Unable to save the the fulfillment #{@fulfillment.errors.full_messages}"
         end
       end
       send_notification_emails
     else
-      Rails.logger.error "Unable to save the contribution #{@contribution.inspect}"
+      Rails.logger.error "Unable to save the contribution #{@contribution.errors.full_messages}"
     end
     respond_with @contribution
   end
