@@ -64,6 +64,10 @@
 
         -# Address
         %fieldset{ 'ng-show' => 'addressRequired()' }
+          .form-group{ 'ng-class' => '{"has-error": contributionForm.recipient.$invalid && !contributionForm.recipient.$pristine, "has-success": contributionForm.recipient.$valid}' }
+            %label.control-label{ for: 'recipient' } Street address
+            %input#recipient.form-control{ type: 'text', name: 'recipient', 'ng-model' => 'recipient', 'ng-required' => 'addressRequired()' }
+            %span.help-block{ 'ng-show' => 'contributionForm.recipient.$dirty && contributionForm.recipient.$error.required' } Street address is required
           .form-group{ 'ng-class' => '{"has-error": contributionForm.address1.$invalid && !contributionForm.address1.$pristine, "has-success": contributionForm.address1.$valid}' }
             %label.control-label{ for: 'address1' } Street address
             %input#address1.form-control{ type: 'text', name: 'address1', 'ng-model' => 'address1', 'ng-required' => 'addressRequired()' }

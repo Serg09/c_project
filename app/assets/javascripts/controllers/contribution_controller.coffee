@@ -83,6 +83,16 @@ app.controller('ContributionController', ['$scope', '$http', ($scope, $http) ->
         amount: specifiedAmount(),
         email: $scope.email,
         payment_id: paymentId
+      fulfillment:
+        reward_id: $scope.selectedRewardId,
+        email: $scope.email,
+        address1: $scope.address1,
+        address2: $scope.address2,
+        city: $scope.city,
+        state: $scope.state,
+        postal_code: $scope.postalCode,
+        recipient: $scope.recipient
+
     $http.post(url, data).then (response) ->
       $('#progressbar').progressbar 'option', 'value', 3
       window.redirectTo "/contributions/#{response.data.public_key}"
