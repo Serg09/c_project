@@ -46,8 +46,7 @@ class ContributionsController < ApplicationController
   def physical_fulfillment_params
     params.require(:fulfillment).permit(
       :reward_id,
-      :first_name,
-      :last_name,
+      :recipient,
       :address1,
       :address2,
       :city,

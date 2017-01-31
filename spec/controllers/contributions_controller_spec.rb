@@ -17,8 +17,7 @@ RSpec.describe ContributionsController, type: :controller do
   let (:physical_fulfillment_attributes) do
     {
       reward_id: physical_reward.id,
-      first_name: 'John',
-      last_name: 'Doe',
+      recipient: 'John Doe',
       address1: 'PO BOX 42',
       city: 'Dallas',
       state: 'TX',

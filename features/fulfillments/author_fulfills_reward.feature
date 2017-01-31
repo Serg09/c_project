@@ -17,7 +17,7 @@ Feature: Author fulfills reward
       | Signed copy of the book     |                             | true                      |
       | Electronic copy of the book | Electronic copy of the book |                           |
     And the campaign for the book "How To Raise Money" has received the following contributions
-      | Email               | Amount | Reward                      | Address                                  | Name            | State     |
+      | Email               | Amount | Reward                      | Address                                  | Recipient       | State     |
       | sally@readerton.com |    100 | Signed copy of the book     | 1234 Main St, Apt 227, Dallas, TX  75200 | Sally Readerton | collected |
       | billy@bookworm.com  |    150 | Electronic copy of the book | 4321 Elm St, Dallas, TX 75201            | Billy Bookworm  | collected |
     And the campaign for the book "How To Raise Money" is collected
