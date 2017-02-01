@@ -17,7 +17,6 @@ class ContributionsController < ApplicationController
   def create
     @contribution = @campaign.contributions.new contribution_params
     @fulfillment = build_fulfillment
-    @contribution.save
     if @contribution.save
       if @fulfillment
         unless @fulfillment.save
@@ -46,6 +45,7 @@ class ContributionsController < ApplicationController
   def physical_fulfillment_params
     params.require(:fulfillment).permit(
       :reward_id,
+      :email,
       :recipient,
       :address1,
       :address2,
