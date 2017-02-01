@@ -9,7 +9,7 @@ Given /^the (#{CAMPAIGN}) has received the following contributions$/ do |campaig
     end
     reward_description = values.delete(:reward)
     address_string = values.delete(:address)
-    name_string = values.delete(:name)
+    recipient = values.delete(:recipient)
 
     # TODO we'll need to add support for contributions with deferred collection later
     contribution = FactoryGirl.create(:contribution, values.merge(campaign: campaign, state: 'collected'))
@@ -20,16 +20,10 @@ Given /^the (#{CAMPAIGN}) has received the following contributions$/ do |campaig
     if reward_description.present?
       reward = campaign.rewards.find_by(description: reward_description)
       expect(reward).not_to be_nil
-      name = name_string.present? ?
-        /\A(?<first_name>\S+) (?<last_name>.*)\z/.match(name_string) :
-        {first_name: Faker::Name.first_name,
-         last_name: Faker::Name.last_name}
-
       if reward.physical_address_required?
         FactoryGirl.create(:physical_fulfillment, contribution: contribution,
                                                   reward: reward,
-                                                  first_name: name[:first_name],
-                                                  last_name: name[:last_name],
+                                                  recipient: recipient,
                                                   address1: address[:line1],
                                                   address2: address[:line2],
                                                   city: address[:city],
@@ -38,9 +32,7 @@ Given /^the (#{CAMPAIGN}) has received the following contributions$/ do |campaig
       else
         FactoryGirl.create(:electronic_fulfillment, contribution: contribution,
                                                     reward: reward,
-                                                    email: values[:email],
-                                                    first_name: name[:first_name],
-                                                    last_name: name[:last_name])
+                                                    email: values[:email])
       end
     end
   end

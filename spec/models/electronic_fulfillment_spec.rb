@@ -44,17 +44,10 @@ RSpec.describe ElectronicFulfillment, type: :model do
     end
   end
 
-  describe '#first_name' do
+  describe '#recipient' do
     it 'cannot be more than 100 characters' do
-      fulfillment = ElectronicFulfillment.new attributes.merge(first_name: 'a' * 101)
-      expect(fulfillment).to have_at_least(1).error_on :first_name
-    end
-  end
-
-  describe '#last_name' do
-    it 'cannot be more than 100 characters' do
-      fulfillment = ElectronicFulfillment.new attributes.merge(last_name: 'a' * 101)
-      expect(fulfillment).to have_at_least(1).error_on :last_name
+      fulfillment = ElectronicFulfillment.new attributes.merge(recipient: 'a' * 101)
+      expect(fulfillment).to have_at_least(1).error_on :recipient
     end
   end
 

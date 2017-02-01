@@ -16,12 +16,11 @@
 #  delivered       :boolean          default(FALSE), not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  first_name      :string(100)
-#  last_name       :string(100)
+#  recipient       :string(100)
 #
 
 class PhysicalFulfillment < Fulfillment
-  validates_presence_of :address1, :city, :state, :postal_code, :country_code, :first_name, :last_name
+  validates_presence_of :address1, :city, :state, :postal_code, :country_code, :recipient
   validates_length_of :address1, maximum: 100
   validates_length_of :address2, maximum: 100
   validates_length_of :city, maximum: 100

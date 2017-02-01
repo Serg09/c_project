@@ -7,8 +7,7 @@ RSpec.describe PhysicalFulfillment, type: :model do
     {
       contribution_id: contribution.id,
       reward_id: reward.id,
-      first_name: 'John',
-      last_name: 'Doe',
+      recipient: 'John Doe',
       address1: '1234 Main St',
       address2: 'Apt 227',
       city: 'Dallas',
@@ -51,27 +50,15 @@ RSpec.describe PhysicalFulfillment, type: :model do
     end
   end
 
-  describe '#first_name' do
+  describe '#recipient' do
     it 'is required' do
-      fulfillment = PhysicalFulfillment.new attributes.except(:first_name)
-      expect(fulfillment).to have_at_least(1).error_on :first_name
+      fulfillment = PhysicalFulfillment.new attributes.except(:recipient)
+      expect(fulfillment).to have_at_least(1).error_on :recipient
     end
 
     it 'cannot be more than 100 characters' do
-      fulfillment = PhysicalFulfillment.new attributes.merge(first_name: 'a' * 101)
-      expect(fulfillment).to have_at_least(1).error_on :first_name
-    end
-  end
-
-  describe '#last_name' do
-    it 'is required' do
-      fulfillment = PhysicalFulfillment.new attributes.except(:last_name)
-      expect(fulfillment).to have_at_least(1).error_on :last_name
-    end
-
-    it 'cannot be more than 100 characters' do
-      fulfillment = PhysicalFulfillment.new attributes.merge(last_name: 'a' * 101)
-      expect(fulfillment).to have_at_least(1).error_on :last_name
+      fulfillment = PhysicalFulfillment.new attributes.merge(recipient: 'a' * 101)
+      expect(fulfillment).to have_at_least(1).error_on :recipient
     end
   end
 

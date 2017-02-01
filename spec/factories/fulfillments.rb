@@ -2,8 +2,6 @@ FactoryGirl.define do
   factory :fulfillment do
     contribution
     reward
-    first_name { Faker::Name.first_name }
-    last_name { Faker::Name.last_name }
     delivered false
 
     factory :electronic_fulfillment do
@@ -12,6 +10,7 @@ FactoryGirl.define do
     end
 
     factory :physical_fulfillment do
+      recipient { "#{Faker::Name.first_name} #{Faker::Name.last_name}" }
       type 'PhysicalFulfillment'
       address1  { Faker::Address.street_address }
       address2 { Faker::Address.secondary_address }

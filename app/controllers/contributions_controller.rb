@@ -17,16 +17,15 @@ class ContributionsController < ApplicationController
   def create
     @contribution = @campaign.contributions.new contribution_params
     @fulfillment = build_fulfillment
-    @contribution.save
     if @contribution.save
       if @fulfillment
         unless @fulfillment.save
-          Rails.logger.warn "Unable to save the the fulfillment #{@fulfillment.inspect}"
+          Rails.logger.warn "Unable to save the the fulfillment #{@fulfillment.errors.full_messages}"
         end
       end
       send_notification_emails
     else
-      Rails.logger.error "Unable to save the contribution #{@contribution.inspect}"
+      Rails.logger.error "Unable to save the contribution #{@contribution.errors.full_messages}"
     end
     respond_with @contribution
   end
@@ -46,8 +45,8 @@ class ContributionsController < ApplicationController
   def physical_fulfillment_params
     params.require(:fulfillment).permit(
       :reward_id,
-      :first_name,
-      :last_name,
+      :email,
+      :recipient,
       :address1,
       :address2,
       :city,

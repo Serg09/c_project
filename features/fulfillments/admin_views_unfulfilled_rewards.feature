@@ -16,7 +16,7 @@ Feature: View unfulfilled rewards
       | Printed copy of the book    | Printed copy of the book    |
       | Electronic copy of the book | Electronic copy of the book |
     And the campaign for the book "How To Raise Money" has received the following contributions
-      | Email               | Amount | Reward                      | Address                                  | Name            | State     |
+      | Email               | Amount | Reward                      | Address                                  | Recipient       | State     |
       | sally@readerton.com |    100 | Printed copy of the book    | 1234 Main St, Apt 227, Dallas, TX  75200 | Sally Readerton | collected |
       | billy@bookworm.com  |    150 | Electronic copy of the book | 4321 Elm St, Dallas, TX 75201            | Billy Bookworm  | collected |
     And the campaign for the book "How To Raise Money" is collected
@@ -28,7 +28,7 @@ Feature: View unfulfilled rewards
       | Printed copy of the book | Printed copy of the book    |
       | Signed T-Shirt           |                             |
     And the campaign for the book "How To Spend Money" has received the following contributions
-      | Email               | Amount | Reward                      | Address                                  | Name            | State     |
+      | Email               | Amount | Reward                      | Address                                  | Recipient       | State     |
       | sally@readerton.com |    75  | Signed T-Shirt              | 1234 Main St, Apt 227, Dallas, TX  75200 | Sally Readerton | collected |
       | billy@bookwork.com  |    200 | Printed copy of the book    | 4321 Elm St, Dallas, TX 75201            | Billy Bookworm  | collected |
     And the campaign for the book "How To Spend Money" is collected
@@ -39,7 +39,7 @@ Feature: View unfulfilled rewards
       | Description                 | 
       | Printed copy of the book    |
     And the campaign for the book "Money Stuff" has received the following contributions
-      | Email               | Amount | Reward                      | Address                       | Name           | State     |
+      | Email               | Amount | Reward                      | Address                       | Recipient      | State     |
       | billy@bookwork.com  |     50 | Printed copy of the book    | 4321 Elm St, Dallas, TX 75201 | Billy Bookworm | collected |
     And the campaign for the book "Money Stuff" is active
 
@@ -49,7 +49,7 @@ Feature: View unfulfilled rewards
       | Description                 | 
       | Printed copy of the book    |
     And the campaign for the book "More Money" has received the following contributions
-      | Email               | Amount | Reward                      | Address                       | Name           | State     |
+      | Email               | Amount | Reward                      | Address                       | Recipient      | State     |
       | billy@bookwork.com  |     60 | Printed copy of the book    | 4321 Elm St, Dallas, TX 75201 | Billy Bookworm | cancelled |
     And the campaign for the book "More Money" is collected
 
