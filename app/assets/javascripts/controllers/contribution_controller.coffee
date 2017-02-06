@@ -84,7 +84,7 @@ app.controller('ContributionController', ['$scope', '$http', ($scope, $http) ->
         email: $scope.email,
         payment_id: paymentId
       fulfillment:
-        reward_id: $scope.selectedRewardId,
+        reward_id: $scope.selectedRewardId || $scope.customRewardId,
         email: $scope.email,
         address1: $scope.address1,
         address2: $scope.address2,
