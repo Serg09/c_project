@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Book, type: :model do
-  let (:author) { FactoryGirl.create(:user) }
+  let (:author) { FactoryBot.create(:user) }
   let (:attributes) do
     {
       author_id: author.id,
@@ -50,7 +50,7 @@ RSpec.describe Book, type: :model do
   end
 
   describe '#new_version!' do
-    let (:book) { FactoryGirl.create(:approved_book) }
+    let (:book) { FactoryBot.create(:approved_book) }
     let (:attributes) do
       {
         title: 'New title',
@@ -78,37 +78,37 @@ RSpec.describe Book, type: :model do
   describe '#working_version' do
     context 'for a book that is pending' do
       it 'returns the pending version' do
-        book = FactoryGirl.create(:pending_book)
+        book = FactoryBot.create(:pending_book)
         expect(book.working_version.id).to eq book.pending_version.id
       end
     end
 
     context 'for a book that is approved' do
       it 'returns the approved version' do
-        book = FactoryGirl.create(:approved_book)
+        book = FactoryBot.create(:approved_book)
         expect(book.working_version.id).to eq book.approved_version.id
       end
     end
 
     context 'for an approved book with a pending edit' do
       it 'returns the pending version' do
-        book = FactoryGirl.create(:approved_book)
-        FactoryGirl.create(:pending_book_version, book: book)
+        book = FactoryBot.create(:approved_book)
+        FactoryBot.create(:pending_book_version, book: book)
         expect(book.working_version.id).to eq book.pending_version.id
       end
     end
 
     context 'for a book that is rejected' do
       it 'returns the rejected version' do
-        book = FactoryGirl.create(:rejected_book)
+        book = FactoryBot.create(:rejected_book)
         expect(book.working_version.id).to eq book.rejected_version.id
       end
     end
 
     context 'for an approved book with a rejected edit' do
       it 'returns the approved version' do
-        book = FactoryGirl.create(:approved_book)
-        FactoryGirl.create(:rejected_book_version, book: book)
+        book = FactoryBot.create(:approved_book)
+        FactoryBot.create(:rejected_book_version, book: book)
         expect(book.working_version.id).to eq book.approved_version.id
       end
     end
@@ -122,14 +122,14 @@ RSpec.describe Book, type: :model do
   end
 
   shared_context :campaigns do
-    let (:author) { FactoryGirl.create(:user) }
-    let (:book) { FactoryGirl.create(:approved_book, author: author) }
-    let!(:campaign) { FactoryGirl.create(:campaign, book: book) }
+    let (:author) { FactoryBot.create(:user) }
+    let (:book) { FactoryBot.create(:approved_book, author: author) }
+    let!(:campaign) { FactoryBot.create(:campaign, book: book) }
   end
 
   context 'for an author with an approved bio' do
     include_context :campaigns
-    let!(:bio) { FactoryGirl.create(:approved_bio, author: book.author) }
+    let!(:bio) { FactoryBot.create(:approved_bio, author: book.author) }
 
     describe '#active_campaign' do
       it 'is the campaign that is currently active' do

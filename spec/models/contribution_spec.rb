@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Contribution, type: :model do
-  let (:campaign) { FactoryGirl.create(:campaign) }
-  let (:reward) { FactoryGirl.create(:reward, campaign: campaign) }
+  let (:campaign) { FactoryBot.create(:campaign) }
+  let (:reward) { FactoryBot.create(:reward, campaign: campaign) }
   let (:attributes) do
     {
       email: 'john@doe.com',
@@ -76,8 +76,8 @@ RSpec.describe Contribution, type: :model do
   end
 
   describe '#fulfillment' do
-    let (:contribution) { FactoryGirl.create(:contribution, campaign: reward.campaign) }
-    let!(:fulfillment) { FactoryGirl.create(:electronic_fulfillment, contribution: contribution, reward: reward) }
+    let (:contribution) { FactoryBot.create(:contribution, campaign: reward.campaign) }
+    let!(:fulfillment) { FactoryBot.create(:electronic_fulfillment, contribution: contribution, reward: reward) }
 
     it 'contains information about the selected reward' do
       expect(contribution.fulfillment).to eq fulfillment
@@ -85,7 +85,7 @@ RSpec.describe Contribution, type: :model do
   end
 
   describe '#payment_id' do
-    let (:payment) { FactoryGirl.create(:payment) }
+    let (:payment) { FactoryBot.create(:payment) }
 
     it 'associates the specified payment with the contribution on create' do
       contribution = Contribution.create! attributes.merge(payment_id: payment.id)
@@ -94,14 +94,14 @@ RSpec.describe Contribution, type: :model do
   end
 
   shared_context :various_states do
-    let!(:incipient1) { FactoryGirl.create(:incipient_contribution) }
-    let!(:incipient2) { FactoryGirl.create(:incipient_contribution) }
-    let!(:pledged1) { FactoryGirl.create(:pledged_contribution) }
-    let!(:pledged2) { FactoryGirl.create(:pledged_contribution) }
-    let!(:collected1) { FactoryGirl.create(:collected_contribution) }
-    let!(:collected2) { FactoryGirl.create(:collected_contribution) }
-    let!(:cancelled1) { FactoryGirl.create(:cancelled_contribution) }
-    let!(:cancelled2) { FactoryGirl.create(:cancelled_contribution) }
+    let!(:incipient1) { FactoryBot.create(:incipient_contribution) }
+    let!(:incipient2) { FactoryBot.create(:incipient_contribution) }
+    let!(:pledged1) { FactoryBot.create(:pledged_contribution) }
+    let!(:pledged2) { FactoryBot.create(:pledged_contribution) }
+    let!(:collected1) { FactoryBot.create(:collected_contribution) }
+    let!(:collected2) { FactoryBot.create(:collected_contribution) }
+    let!(:cancelled1) { FactoryBot.create(:cancelled_contribution) }
+    let!(:cancelled2) { FactoryBot.create(:cancelled_contribution) }
   end
 
   describe '::incipient' do
@@ -210,9 +210,9 @@ RSpec.describe Contribution, type: :model do
   end
 
   context 'when incipient' do
-    let (:contribution) { FactoryGirl.create(:incipient_contribution) }
+    let (:contribution) { FactoryBot.create(:incipient_contribution) }
     let!(:payment) do
-      payment = FactoryGirl.create(:pending_payment)
+      payment = FactoryBot.create(:pending_payment)
       contribution.payments << payment
       payment
     end
@@ -260,13 +260,13 @@ RSpec.describe Contribution, type: :model do
   context 'when collected' do
     describe '#collect' do
       it_behaves_like 'a non-collectable contribution' do
-        let (:contribution) { FactoryGirl.create(:collected_contribution, amount: 101) }
+        let (:contribution) { FactoryBot.create(:collected_contribution, amount: 101) }
       end
     end
 
     describe '#cancel' do
       it_behaves_like 'a cancellable contribution' do
-        let (:contribution) { FactoryGirl.create(:collected_contribution, amount: 101) }
+        let (:contribution) { FactoryBot.create(:collected_contribution, amount: 101) }
       end
     end
   end
@@ -275,18 +275,18 @@ RSpec.describe Contribution, type: :model do
 
     describe '#collect' do
       it_behaves_like 'a non-collectable contribution' do
-        let (:contribution) { FactoryGirl.create(:cancelled_contribution) }
+        let (:contribution) { FactoryBot.create(:cancelled_contribution) }
         let!(:payment) do
-          FactoryGirl.create(:refunded_payment, contribution: contribution)
+          FactoryBot.create(:refunded_payment, contribution: contribution)
         end
       end
     end
 
     describe '#cancel' do
       it_behaves_like 'a non-cancellable contribution' do
-        let (:contribution) { FactoryGirl.create(:cancelled_contribution) }
+        let (:contribution) { FactoryBot.create(:cancelled_contribution) }
         let!(:payment) do
-          FactoryGirl.create(:refunded_payment, contribution: contribution)
+          FactoryBot.create(:refunded_payment, contribution: contribution)
         end
       end
     end

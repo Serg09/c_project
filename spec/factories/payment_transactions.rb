@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :payment_transaction, aliases: [:approved_payment_transaction] do
     payment
     intent PaymentTransaction.SALE

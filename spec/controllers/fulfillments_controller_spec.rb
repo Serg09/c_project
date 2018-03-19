@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe FulfillmentsController, type: :controller do
-  let (:fulfillment) { FactoryGirl.create(:electronic_fulfillment) }
+  let (:fulfillment) { FactoryBot.create(:electronic_fulfillment) }
   let (:author) { fulfillment.reward.campaign.book.author }
 
   context 'for an authenticated user' do
@@ -32,7 +32,7 @@ RSpec.describe FulfillmentsController, type: :controller do
   end
 
   context 'for an user that does not own the fulfillment' do
-    let (:other_user) { FactoryGirl.create(:user) }
+    let (:other_user) { FactoryBot.create(:user) }
     before(:each) { sign_in other_user }
 
     describe 'patch :fulfill' do

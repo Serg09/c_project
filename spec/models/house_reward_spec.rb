@@ -41,7 +41,7 @@ RSpec.describe HouseReward, type: :model do
 
   describe '#estimator' do
     context 'when #estimator_class is a valid class name' do
-      let (:reward) { FactoryGirl.create(:house_reward, estimator_class: 'PublishingCostEstimator') }
+      let (:reward) { FactoryBot.create(:house_reward, estimator_class: 'PublishingCostEstimator') }
 
       it 'is an instance of the specified estimator_class' do
         expect(reward.estimator).to be_a PublishingCostEstimator
@@ -49,7 +49,7 @@ RSpec.describe HouseReward, type: :model do
     end
 
     context 'when #estimator_class is nil' do
-      let (:reward) { FactoryGirl.create(:house_reward, estimator_class: nil) }
+      let (:reward) { FactoryBot.create(:house_reward, estimator_class: nil) }
 
       it 'is nil' do
         expect(reward.estimator).to be_nil
@@ -57,7 +57,7 @@ RSpec.describe HouseReward, type: :model do
     end
 
     context 'when #estimator_class is an invalid class name' do
-      let (:reward) { FactoryGirl.create(:house_reward, estimator_class: 'not_a_class') }
+      let (:reward) { FactoryBot.create(:house_reward, estimator_class: 'not_a_class') }
 
       it 'raises an error' do
         expect{reward.estimator}.to \
@@ -69,7 +69,7 @@ RSpec.describe HouseReward, type: :model do
   describe '#estimated_cost' do
     context 'when a cost estimator is specified' do
       let (:estimator) { double('estimator') }
-      let (:reward) { FactoryGirl.create(:house_reward, estimator: estimator) }
+      let (:reward) { FactoryBot.create(:house_reward, estimator: estimator) }
 
       it 'returns the value generate by an instance of the estimator' do
         expect(estimator).to receive(:estimate).with(2).and_return(6.28)
@@ -78,7 +78,7 @@ RSpec.describe HouseReward, type: :model do
     end
 
     context 'when a cost estimate is absent' do
-      let (:reward) { FactoryGirl.create(:house_reward, estimator: nil) }
+      let (:reward) { FactoryBot.create(:house_reward, estimator: nil) }
 
       it 'returns nil' do
         expect(reward.estimate_cost(2)).to be_nil

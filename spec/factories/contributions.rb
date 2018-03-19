@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :contribution, aliases: [:pledged_contribution] do
     campaign
     amount { Faker::Number.between(100, 1000) }
@@ -13,7 +13,7 @@ FactoryGirl.define do
         provider_fee 1.23
       end
       after(:create) do |contribution, evaluator|
-        payment = FactoryGirl.create(:approved_payment, provider_fee: evaluator.provider_fee)
+        payment = FactoryBot.create(:approved_payment, provider_fee: evaluator.provider_fee)
         contribution.payments << payment
       end
     end

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :reward, aliases: [:electronic_reward] do
     campaign
     description { Faker::Hipster.words(5) }

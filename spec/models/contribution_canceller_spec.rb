@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe ContributionCanceller do
-  let (:campaign) { FactoryGirl.create(:cancelling_campaign) }
-  let (:contribution1) { FactoryGirl.create(:collected_contribution, campaign: campaign) }
-  let (:contribution2) { FactoryGirl.create(:collected_contribution, campaign: campaign) }
+  let (:campaign) { FactoryBot.create(:cancelling_campaign) }
+  let (:contribution1) { FactoryBot.create(:collected_contribution, campaign: campaign) }
+  let (:contribution2) { FactoryBot.create(:collected_contribution, campaign: campaign) }
   let (:payment1) { contribution1.payments.first }
   let (:payment2) { contribution2.payments.first }
   let (:success_response) { payment_create_response }
@@ -62,7 +62,7 @@ describe ContributionCanceller do
     end
 
     context 'for a campaign that is not in the cancelling state' do
-      let (:campaign) { FactoryGirl.create(:active_campaign) }
+      let (:campaign) { FactoryBot.create(:active_campaign) }
 
       it 'writes a warning to the log' do
         allow(Rails.logger).to receive(:warn)

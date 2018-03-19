@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Admin::BiosController, type: :controller do
-  let (:user) { FactoryGirl.create(:user) }
-  let (:author) { FactoryGirl.create(:author) }
-  let (:pending_bio) { FactoryGirl.create(:pending_bio, author: user) }
-  let (:approved_bio) { FactoryGirl.create(:approved_bio, author: user) }
-  let (:author_bio) { FactoryGirl.create(:author_bio, author: author) }
+  let (:user) { FactoryBot.create(:user) }
+  let (:author) { FactoryBot.create(:author) }
+  let (:pending_bio) { FactoryBot.create(:pending_bio, author: user) }
+  let (:approved_bio) { FactoryBot.create(:approved_bio, author: user) }
+  let (:author_bio) { FactoryBot.create(:author_bio, author: author) }
   let (:attributes) do
     {
       text: 'This is some stuff about me',
@@ -22,7 +22,7 @@ RSpec.describe Admin::BiosController, type: :controller do
   end
 
   context 'for an authenticated administrator' do
-    let (:admin) { FactoryGirl.create(:administrator) }
+    let (:admin) { FactoryBot.create(:administrator) }
     before(:each) { sign_in admin }
 
     describe 'get :index' do

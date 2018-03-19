@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe BiosController, type: :controller do
   include Devise::TestHelpers
 
-  let (:author) { FactoryGirl.create(:user) }
-  let (:bio) { FactoryGirl.create(:bio, author: author) }
-  let (:approved_bio) { FactoryGirl.create(:approved_bio, author: author) }
+  let (:author) { FactoryBot.create(:user) }
+  let (:bio) { FactoryBot.create(:bio, author: author) }
+  let (:approved_bio) { FactoryBot.create(:approved_bio, author: author) }
   let (:attributes) do
     {
       text: 'This is some stuff about me',
@@ -20,7 +20,7 @@ RSpec.describe BiosController, type: :controller do
     before(:each) { sign_in author}
 
     context 'with an approved bio' do
-      let!(:bio) { FactoryGirl.create(:approved_bio, author: author) }
+      let!(:bio) { FactoryBot.create(:approved_bio, author: author) }
 
       describe 'get :index' do
         it 'is successful' do
@@ -31,7 +31,7 @@ RSpec.describe BiosController, type: :controller do
     end
 
     context 'with a pending bio' do
-      let!(:bio) { FactoryGirl.create(:pending_bio, author: author) }
+      let!(:bio) { FactoryBot.create(:pending_bio, author: author) }
 
       describe 'get :index' do
         it 'is successful' do
@@ -42,7 +42,7 @@ RSpec.describe BiosController, type: :controller do
     end
 
     context 'with a rejected bio' do
-      let!(:bio) { FactoryGirl.create(:rejected_bio, author: author) }
+      let!(:bio) { FactoryBot.create(:rejected_bio, author: author) }
 
       describe 'get :index' do
         it 'is successful' do
@@ -122,7 +122,7 @@ RSpec.describe BiosController, type: :controller do
 
     end
     context 'that does not own the bio' do
-      let (:other_user) { FactoryGirl.create(:user) }
+      let (:other_user) { FactoryBot.create(:user) }
       before(:each) { sign_in other_user }
 
       describe "get :show" do
@@ -157,7 +157,7 @@ RSpec.describe BiosController, type: :controller do
 
   context 'for an unauthenticated user' do
     context 'and an author with an active bio' do
-      let!(:bio) { FactoryGirl.create(:approved_bio, author: author) }
+      let!(:bio) { FactoryBot.create(:approved_bio, author: author) }
 
       describe 'get :index' do
         it 'is successful' do
@@ -168,7 +168,7 @@ RSpec.describe BiosController, type: :controller do
     end
 
     context 'and an author without an active bio' do
-      let!(:bio) { FactoryGirl.create(:pending_bio, author: author) }
+      let!(:bio) { FactoryBot.create(:pending_bio, author: author) }
 
       describe 'get :index' do
         it 'raises "resource not found"' do

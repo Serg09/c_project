@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :book_version, aliases: [:approved_book_version] do
     transient do
       genres []

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Admin::ProductsController, type: :controller do
-  let (:book) { FactoryGirl.create :book }
+  let (:book) { FactoryBot.create :book }
   let (:attributes) do
     {
       caption: 'Hardback',
@@ -10,7 +10,7 @@ RSpec.describe Admin::ProductsController, type: :controller do
   end
 
   context 'for an authenticated administrator' do
-    let (:admin) { FactoryGirl.create :administrator }
+    let (:admin) { FactoryBot.create :administrator }
     before { sign_in admin }
 
     describe 'get :index' do
@@ -41,7 +41,7 @@ RSpec.describe Admin::ProductsController, type: :controller do
     end
 
     describe 'delete :destroy' do
-      let!(:product) { FactoryGirl.create :product, book: book }
+      let!(:product) { FactoryBot.create :product, book: book }
 
       it 'deletes the product' do
         expect do
@@ -85,7 +85,7 @@ RSpec.describe Admin::ProductsController, type: :controller do
     end
 
     describe 'delete :destroy' do
-      let!(:product) { FactoryGirl.create :product, book: book }
+      let!(:product) { FactoryBot.create :product, book: book }
 
       it 'does not delete the product' do
         expect do

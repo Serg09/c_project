@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PaymentTransaction, type: :model do
-  let (:payment) { FactoryGirl.create(:payment) }
+  let (:payment) { FactoryBot.create(:payment) }
   let (:response) { payment_create_response }
   let (:attributes) do
     {
@@ -68,12 +68,12 @@ RSpec.describe PaymentTransaction, type: :model do
   end
 
   shared_context :various_states do
-    let!(:pending1) { FactoryGirl.create(:pending_payment_transaction) }
-    let!(:pending2) { FactoryGirl.create(:pending_payment_transaction) }
-    let!(:completed1) { FactoryGirl.create(:approved_payment_transaction) }
-    let!(:completed2) { FactoryGirl.create(:approved_payment_transaction) }
-    let!(:failed1) { FactoryGirl.create(:failed_payment_transaction) }
-    let!(:failed2) { FactoryGirl.create(:failed_payment_transaction) }
+    let!(:pending1) { FactoryBot.create(:pending_payment_transaction) }
+    let!(:pending2) { FactoryBot.create(:pending_payment_transaction) }
+    let!(:completed1) { FactoryBot.create(:approved_payment_transaction) }
+    let!(:completed2) { FactoryBot.create(:approved_payment_transaction) }
+    let!(:failed1) { FactoryBot.create(:failed_payment_transaction) }
+    let!(:failed2) { FactoryBot.create(:failed_payment_transaction) }
   end
 
   describe '::pending' do

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Admin::AuthorsController, type: :controller do
-  let (:admin) { FactoryGirl.create(:administrator) }
-  let (:author) { FactoryGirl.create(:author) }
+  let (:admin) { FactoryBot.create(:administrator) }
+  let (:author) { FactoryBot.create(:author) }
   let (:attributes) do
     {
       first_name: 'Humphrey',
@@ -69,7 +69,7 @@ RSpec.describe Admin::AuthorsController, type: :controller do
     end
 
     describe 'DELETE #destroy' do
-      let!(:author) { FactoryGirl.create(:author) }
+      let!(:author) { FactoryBot.create(:author) }
 
       it 'redirects to the author index page' do
         delete :destroy, id: author
@@ -141,7 +141,7 @@ RSpec.describe Admin::AuthorsController, type: :controller do
     end
 
     describe 'DELETE #destroy' do
-      let!(:author) { FactoryGirl.create(:author) }
+      let!(:author) { FactoryBot.create(:author) }
 
       it "redirects to the home page" do
         delete :destroy, id: author

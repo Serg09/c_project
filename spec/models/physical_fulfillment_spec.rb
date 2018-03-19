@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe PhysicalFulfillment, type: :model do
-  let (:reward) { FactoryGirl.create(:reward, physical_address_required: true) }
-  let (:contribution) { FactoryGirl.create(:contribution, campaign: reward.campaign) }
+  let (:reward) { FactoryBot.create(:reward, physical_address_required: true) }
+  let (:contribution) { FactoryBot.create(:contribution, campaign: reward.campaign) }
   let (:attributes) do
     {
       contribution_id: contribution.id,

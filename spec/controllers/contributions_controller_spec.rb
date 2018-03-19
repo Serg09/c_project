@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe ContributionsController, type: :controller do
-  let (:campaign) { FactoryGirl.create(:campaign) }
-  let!(:physical_reward) { FactoryGirl.create(:physical_reward, campaign: campaign) }
-  let!(:electronic_reward) { FactoryGirl.create(:electronic_reward, campaign: campaign) }
-  let (:payment) { FactoryGirl.create(:payment) }
+  let (:campaign) { FactoryBot.create(:campaign) }
+  let!(:physical_reward) { FactoryBot.create(:physical_reward, campaign: campaign) }
+  let!(:electronic_reward) { FactoryBot.create(:electronic_reward, campaign: campaign) }
+  let (:payment) { FactoryBot.create(:payment) }
 
   let (:attributes) do
     {
@@ -93,7 +93,7 @@ RSpec.describe ContributionsController, type: :controller do
   end
 
   describe 'get :show' do
-    let!(:contribution) { FactoryGirl.create(:contribution) }
+    let!(:contribution) { FactoryBot.create(:contribution) }
 
     it 'is successful' do
       get :show, token: contribution.public_key

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Reward, type: :model do
-  let (:campaign) { FactoryGirl.create(:campaign) }
-  let (:other_campaign) { FactoryGirl.create(:campaign) }
+  let (:campaign) { FactoryBot.create(:campaign) }
+  let (:other_campaign) { FactoryBot.create(:campaign) }
   let (:attributes) do
     {
       campaign_id: campaign.id,
@@ -58,11 +58,11 @@ RSpec.describe Reward, type: :model do
 
   describe '#working_long_description' do
     context 'for a house-fulfilled reward' do
-      let (:house_reward) { FactoryGirl.create(:house_reward) }
+      let (:house_reward) { FactoryBot.create(:house_reward) }
 
       context 'when #long_description present' do
         let (:reward) do
-          FactoryGirl.create(:reward, house_reward: house_reward,
+          FactoryBot.create(:reward, house_reward: house_reward,
                                       long_description: 'this is the long desc.') 
         end
 
@@ -73,7 +73,7 @@ RSpec.describe Reward, type: :model do
 
       context 'when #long_description is blank' do
         let (:reward) do
-          FactoryGirl.create(:reward, house_reward: house_reward,
+          FactoryBot.create(:reward, house_reward: house_reward,
                                       long_description: nil)
         end
 
@@ -104,7 +104,7 @@ RSpec.describe Reward, type: :model do
   end
 
   context 'when #house_reward_id is present' do
-    let!(:house_reward) { FactoryGirl.create(:house_reward, physical_address_required: false) }
+    let!(:house_reward) { FactoryBot.create(:house_reward, physical_address_required: false) }
     let (:reward) do
       Reward.new attributes.
         except(:description, :physical_address_required).
@@ -156,8 +156,8 @@ RSpec.describe Reward, type: :model do
   end
 
   describe '::by_minimum_contribution' do
-    let!(:r1) { FactoryGirl.create(:reward, campaign: campaign, minimum_contribution: 10) }
-    let!(:r2) { FactoryGirl.create(:reward, campaign: campaign, minimum_contribution: 5) }
+    let!(:r1) { FactoryBot.create(:reward, campaign: campaign, minimum_contribution: 10) }
+    let!(:r2) { FactoryBot.create(:reward, campaign: campaign, minimum_contribution: 5) }
 
     it 'returns the rewards sorted by minimum contribution' do
       expect(campaign.rewards.by_minimum_contribution.map(&:id)).to eq [r2.id, r1.id]
@@ -165,11 +165,11 @@ RSpec.describe Reward, type: :model do
   end
 
   shared_context :fulfillments do
-    let (:reward) { FactoryGirl.create(:reward, campaign: campaign, physical_address_required: false) }
-    let (:d1) { FactoryGirl.create(:contribution, campaign: campaign) }
-    let!(:f1) { FactoryGirl.create(:electronic_fulfillment, contribution: d1, reward: reward) }
-    let (:d2) { FactoryGirl.create(:contribution, campaign: campaign) }
-    let!(:f2) { FactoryGirl.create(:electronic_fulfillment, contribution: d2, reward: reward) }
+    let (:reward) { FactoryBot.create(:reward, campaign: campaign, physical_address_required: false) }
+    let (:d1) { FactoryBot.create(:contribution, campaign: campaign) }
+    let!(:f1) { FactoryBot.create(:electronic_fulfillment, contribution: d1, reward: reward) }
+    let (:d2) { FactoryBot.create(:contribution, campaign: campaign) }
+    let!(:f2) { FactoryBot.create(:electronic_fulfillment, contribution: d2, reward: reward) }
   end
 
   describe '#contributions' do

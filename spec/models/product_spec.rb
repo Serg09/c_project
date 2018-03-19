@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  let (:book) { FactoryGirl.create :book }
+  let (:book) { FactoryBot.create :book }
   let (:attributes) do
     {
       book_id: book.id,
@@ -53,7 +53,7 @@ RSpec.describe Product, type: :model do
 
     it 'can be duplicated across books' do
       p1 = Product.create! attributes
-      other_book = FactoryGirl.create :book
+      other_book = FactoryBot.create :book
       p2 = Product.new attributes.merge(book_id: other_book.id,
                                         sku: Faker::Code.isbn)
       expect(p2).to be_valid

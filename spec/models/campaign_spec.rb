@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Campaign, type: :model do
-  let (:book) { FactoryGirl.create(:approved_book) }
+  let (:book) { FactoryBot.create(:approved_book) }
 
   let (:attributes) do
     {
@@ -63,7 +63,7 @@ RSpec.describe Campaign, type: :model do
   end
 
   describe '#success_notification_sent?' do
-    let (:campaign) { FactoryGirl.create(:campaign) }
+    let (:campaign) { FactoryBot.create(:campaign) }
 
     it 'is false if #success_notification_sent_at is nil' do
       expect(campaign.success_notification_sent?).to be false
@@ -76,9 +76,9 @@ RSpec.describe Campaign, type: :model do
   end
 
   describe '#target_amount_reached?' do
-    let (:campaign) { FactoryGirl.create(:campaign, target_amount: 500) }
-    let!(:contribution) { FactoryGirl.create(:contribution, campaign: campaign, amount: 499) }
-    let (:contribution2) { FactoryGirl.create(:contribution, campaign: campaign, amount: 1) }
+    let (:campaign) { FactoryBot.create(:campaign, target_amount: 500) }
+    let!(:contribution) { FactoryBot.create(:contribution, campaign: campaign, amount: 499) }
+    let (:contribution2) { FactoryBot.create(:contribution, campaign: campaign, amount: 1) }
 
     it 'is false if the total donated is less than #target_amount' do
       expect(campaign.target_amount_reached?).to be false
@@ -91,40 +91,40 @@ RSpec.describe Campaign, type: :model do
   end
 
   shared_context :contributions_and_fulfillments do
-    let (:campaign) { FactoryGirl.create(:active_campaign) }
+    let (:campaign) { FactoryBot.create(:active_campaign) }
     let (:house_reward) do
-      FactoryGirl.create(:physical_house_reward, estimator_class: 'PublishingCostEstimator')
+      FactoryBot.create(:physical_house_reward, estimator_class: 'PublishingCostEstimator')
     end
     let (:physical_reward) do
-      FactoryGirl.create(:reward, campaign: campaign,
+      FactoryBot.create(:reward, campaign: campaign,
                                   house_reward: house_reward)
     end
-    let (:other_reward) { FactoryGirl.create(:reward, campaign: campaign) }
+    let (:other_reward) { FactoryBot.create(:reward, campaign: campaign) }
     let (:c1) do
-      FactoryGirl.create(:collected_contribution, campaign: campaign,
+      FactoryBot.create(:collected_contribution, campaign: campaign,
                                                   amount: 100,
                                                   provider_fee: 1.00)
     end
     let!(:f1) do
-      FactoryGirl.create(:physical_fulfillment, contribution: c1,
+      FactoryBot.create(:physical_fulfillment, contribution: c1,
                                                 reward: physical_reward)
     end
     let (:c2) do
-      FactoryGirl.create(:collected_contribution, campaign: campaign,
+      FactoryBot.create(:collected_contribution, campaign: campaign,
                                                   amount: 200,
                                                   provider_fee: 1.50)
     end
     let!(:f2) do
-      FactoryGirl.create(:physical_fulfillment, contribution: c2,
+      FactoryBot.create(:physical_fulfillment, contribution: c2,
                                                 reward: other_reward)
     end
     let (:c3) do
-      FactoryGirl.create(:collected_contribution, campaign: campaign,
+      FactoryBot.create(:collected_contribution, campaign: campaign,
                                                   amount: 300,
                                                   provider_fee: 1.75)
     end
     let!(:f3) do
-      FactoryGirl.create(:physical_fulfillment, contribution: c3,
+      FactoryBot.create(:physical_fulfillment, contribution: c3,
                                                 reward: physical_reward)
     end
 
@@ -144,10 +144,10 @@ RSpec.describe Campaign, type: :model do
   end
 
   describe '#estimated_cost_of_payments' do
-    let (:campaign) { FactoryGirl.create(:campaign) }
-    let!(:c1) { FactoryGirl.create(:collected_contribution, campaign: campaign, provider_fee: 1.00) }
-    let!(:c2) { FactoryGirl.create(:collected_contribution, campaign: campaign, provider_fee: 1.50) }
-    let!(:c3) { FactoryGirl.create(:collected_contribution, campaign: campaign, provider_fee: 2.00) }
+    let (:campaign) { FactoryBot.create(:campaign) }
+    let!(:c1) { FactoryBot.create(:collected_contribution, campaign: campaign, provider_fee: 1.00) }
+    let!(:c2) { FactoryBot.create(:collected_contribution, campaign: campaign, provider_fee: 1.50) }
+    let!(:c3) { FactoryBot.create(:collected_contribution, campaign: campaign, provider_fee: 2.00) }
 
     it 'aggregates the fees from the payments' do
       expect(campaign.estimated_cost_of_payments).to eq 4.50
@@ -164,18 +164,18 @@ RSpec.describe Campaign, type: :model do
   end
 
   describe '::send_progress_notifications' do
-    let (:unsubscribed_author) { FactoryGirl.create(:user, unsubscribed: true) }
-    let (:book_1) { FactoryGirl.create(:book, title: "You've Got Mail") }
-    let (:book_2) { FactoryGirl.create(:book, title: "Manage Your Inbox") }
-    let (:book_3) { FactoryGirl.create(:book, author: unsubscribed_author) }
-    let!(:active_1) { FactoryGirl.create(:active_campaign, book: book_1) }
-    let!(:active_2) { FactoryGirl.create(:active_campaign, book: book_2) }
-    let!(:active_3) { FactoryGirl.create(:active_campaign, book: book_3) }
-    let!(:unstarted) { FactoryGirl.create(:unstarted_campaign) }
-    let!(:collecting) { FactoryGirl.create(:collecting_campaign) }
-    let!(:collected) { FactoryGirl.create(:collected_campaign) }
-    let!(:cancelling) { FactoryGirl.create(:cancelling_campaign) }
-    let!(:cancelled) { FactoryGirl.create(:cancelled_campaign) }
+    let (:unsubscribed_author) { FactoryBot.create(:user, unsubscribed: true) }
+    let (:book_1) { FactoryBot.create(:book, title: "You've Got Mail") }
+    let (:book_2) { FactoryBot.create(:book, title: "Manage Your Inbox") }
+    let (:book_3) { FactoryBot.create(:book, author: unsubscribed_author) }
+    let!(:active_1) { FactoryBot.create(:active_campaign, book: book_1) }
+    let!(:active_2) { FactoryBot.create(:active_campaign, book: book_2) }
+    let!(:active_3) { FactoryBot.create(:active_campaign, book: book_3) }
+    let!(:unstarted) { FactoryBot.create(:unstarted_campaign) }
+    let!(:collecting) { FactoryBot.create(:collecting_campaign) }
+    let!(:collected) { FactoryBot.create(:collected_campaign) }
+    let!(:cancelling) { FactoryBot.create(:cancelling_campaign) }
+    let!(:cancelled) { FactoryBot.create(:cancelled_campaign) }
 
     let (:not_active) { [unstarted, collecting, collected, cancelling, cancelled] }
 
@@ -206,7 +206,7 @@ RSpec.describe Campaign, type: :model do
   describe '::current' do
     before(:all) { Timecop.freeze(DateTime.parse('2016-03-02 12:00:00 CST')) }
     after(:all) { Timecop.return }
-    let!(:campaign) { FactoryGirl.create(:campaign, book: book, target_date: '2016-04-30') }
+    let!(:campaign) { FactoryBot.create(:campaign, book: book, target_date: '2016-04-30') }
     it 'returns campaigns having target dates on or after today' do
       expect(Campaign.current.map(&:id)).to eq [campaign.id]
     end
@@ -221,7 +221,7 @@ RSpec.describe Campaign, type: :model do
   describe '::past' do
     let!(:campaign) do
       Timecop.freeze(Date.parse('2016-01-01')) do
-        FactoryGirl.create(:campaign, book: book, target_date: '2016-02-27')
+        FactoryBot.create(:campaign, book: book, target_date: '2016-02-27')
       end
     end
     it 'returns campaigns having target dates that are in the past' do
@@ -236,16 +236,16 @@ RSpec.describe Campaign, type: :model do
   end
 
   shared_context :stateful_campaigns do
-    let!(:unstarted1) { FactoryGirl.create(:unstarted_campaign) }
-    let!(:unstarted2) { FactoryGirl.create(:unstarted_campaign) }
-    let!(:active1) { FactoryGirl.create(:active_campaign) }
-    let!(:active2) { FactoryGirl.create(:active_campaign) }
-    let!(:collecting1) { FactoryGirl.create(:collecting_campaign) }
-    let!(:collecting2) { FactoryGirl.create(:collecting_campaign) }
-    let!(:collected1) { FactoryGirl.create(:collected_campaign) }
-    let!(:collected2) { FactoryGirl.create(:collected_campaign) }
-    let!(:cancelled1) { FactoryGirl.create(:cancelled_campaign) }
-    let!(:cancelled2) { FactoryGirl.create(:cancelled_campaign) }
+    let!(:unstarted1) { FactoryBot.create(:unstarted_campaign) }
+    let!(:unstarted2) { FactoryBot.create(:unstarted_campaign) }
+    let!(:active1) { FactoryBot.create(:active_campaign) }
+    let!(:active2) { FactoryBot.create(:active_campaign) }
+    let!(:collecting1) { FactoryBot.create(:collecting_campaign) }
+    let!(:collecting2) { FactoryBot.create(:collecting_campaign) }
+    let!(:collected1) { FactoryBot.create(:collected_campaign) }
+    let!(:collected2) { FactoryBot.create(:collected_campaign) }
+    let!(:cancelled1) { FactoryBot.create(:cancelled_campaign) }
+    let!(:cancelled2) { FactoryBot.create(:cancelled_campaign) }
   end
 
   describe '::active' do
@@ -291,9 +291,9 @@ RSpec.describe Campaign, type: :model do
   end
 
   shared_context :contributions do
-    let (:campaign) { FactoryGirl.create(:campaign, target_amount: 500, target_date: '2016-04-30') }
-    let!(:contribution1) { FactoryGirl.create(:contribution, campaign: campaign, amount: 25) }
-    let!(:contribution2) { FactoryGirl.create(:contribution, campaign: campaign, amount: 50) }
+    let (:campaign) { FactoryBot.create(:campaign, target_amount: 500, target_date: '2016-04-30') }
+    let!(:contribution1) { FactoryBot.create(:contribution, campaign: campaign, amount: 25) }
+    let!(:contribution2) { FactoryBot.create(:contribution, campaign: campaign, amount: 50) }
   end
 
   describe '#total_donated' do
@@ -321,7 +321,7 @@ RSpec.describe Campaign, type: :model do
 
   context 'after the target amount is reached' do
     include_context :contributions
-    let!(:contribution3) { FactoryGirl.create(:contribution, campaign: campaign, amount: 426) }
+    let!(:contribution3) { FactoryBot.create(:contribution, campaign: campaign, amount: 426) }
 
     describe '#contribution_amount_needed' do
       it 'returns zero' do
@@ -366,10 +366,10 @@ RSpec.describe Campaign, type: :model do
   end
 
   context 'for an unstarted campaign' do
-    let (:author) { FactoryGirl.create(:author_user) }
-    let (:book) { FactoryGirl.create(:approved_book, author: author) }
+    let (:author) { FactoryBot.create(:author_user) }
+    let (:book) { FactoryBot.create(:approved_book, author: author) }
     let (:campaign) do
-      FactoryGirl.create(:unstarted_campaign, agree_to_terms: true,
+      FactoryBot.create(:unstarted_campaign, agree_to_terms: true,
                                               book: book)
     end
 
@@ -380,7 +380,7 @@ RSpec.describe Campaign, type: :model do
         end
       end
       context 'when the author does not have an approved bio' do
-        let (:author) { FactoryGirl.create(:user) }
+        let (:author) { FactoryBot.create(:user) }
 
         it 'is false' do
           expect(campaign.author_ready?).to be false
@@ -399,7 +399,7 @@ RSpec.describe Campaign, type: :model do
     end
 
     context 'when terms have not been agreed to' do
-      let (:campaign) { FactoryGirl.create(:unstarted_campaign, agree_to_terms: false) }
+      let (:campaign) { FactoryBot.create(:unstarted_campaign, agree_to_terms: false) }
 
       describe '#start' do
         it 'does not change the state' do
@@ -455,8 +455,8 @@ RSpec.describe Campaign, type: :model do
     end
 
     describe '#cancel_contributions' do
-      let!(:contribution1) { FactoryGirl.create(:cancelled_contribution, campaign: campaign) }
-      let!(:contribution2) { FactoryGirl.create(:cancelled_contribution, campaign: campaign) }
+      let!(:contribution1) { FactoryBot.create(:cancelled_contribution, campaign: campaign) }
+      let!(:contribution2) { FactoryBot.create(:cancelled_contribution, campaign: campaign) }
 
       it 'does not cancel any contributions' do
         campaign.contributions.each do |d|
@@ -487,7 +487,7 @@ RSpec.describe Campaign, type: :model do
 
   context 'for an active campaign' do
     let (:target_date) { Date.new(2016, 4, 30) }
-    let (:campaign) { FactoryGirl.create(:active_campaign, target_date: target_date) }
+    let (:campaign) { FactoryBot.create(:active_campaign, target_date: target_date) }
 
     context 'that has not been prolonged' do
       describe '#prolong' do
@@ -506,7 +506,7 @@ RSpec.describe Campaign, type: :model do
     end
 
     context 'that has been prolonged' do
-      let (:campaign) { FactoryGirl.create(:active_campaign, prolonged: true) }
+      let (:campaign) { FactoryBot.create(:active_campaign, prolonged: true) }
       it 'does not change #target_date' do
         expect do
           campaign.prolong
@@ -570,8 +570,8 @@ RSpec.describe Campaign, type: :model do
     end
 
     describe '#cancel_contributions' do
-      let!(:contribution1) { FactoryGirl.create(:cancelled_contribution, campaign: campaign) }
-      let!(:contribution2) { FactoryGirl.create(:cancelled_contribution, campaign: campaign) }
+      let!(:contribution1) { FactoryBot.create(:cancelled_contribution, campaign: campaign) }
+      let!(:contribution2) { FactoryBot.create(:cancelled_contribution, campaign: campaign) }
 
       it 'does not cancel any contributions' do
         campaign.contributions.each do |d|
@@ -601,7 +601,7 @@ RSpec.describe Campaign, type: :model do
   end
 
   context 'for a collected campaign' do
-    let (:campaign) { FactoryGirl.create(:collected_campaign) }
+    let (:campaign) { FactoryBot.create(:collected_campaign) }
 
     describe '#start' do
       it 'does not change the state' do
@@ -670,8 +670,8 @@ RSpec.describe Campaign, type: :model do
     end
 
     describe '#cancel_contributions' do
-      let!(:contribution1) { FactoryGirl.create(:cancelled_contribution, campaign: campaign) }
-      let!(:contribution2) { FactoryGirl.create(:cancelled_contribution, campaign: campaign) }
+      let!(:contribution1) { FactoryBot.create(:cancelled_contribution, campaign: campaign) }
+      let!(:contribution2) { FactoryBot.create(:cancelled_contribution, campaign: campaign) }
 
       it 'does not cancel any contributions' do
         campaign.contributions.each do |d|
@@ -701,7 +701,7 @@ RSpec.describe Campaign, type: :model do
   end
 
   context 'for a cancelled campaign' do
-    let (:campaign) { FactoryGirl.create(:cancelled_campaign) }
+    let (:campaign) { FactoryBot.create(:cancelled_campaign) }
 
     describe '#collect' do
       it 'does not change the state' do
@@ -748,8 +748,8 @@ RSpec.describe Campaign, type: :model do
     end
 
     describe '#cancel_contributions' do
-      let!(:contribution1) { FactoryGirl.create(:cancelled_contribution, campaign: campaign) }
-      let!(:contribution2) { FactoryGirl.create(:cancelled_contribution, campaign: campaign) }
+      let!(:contribution1) { FactoryBot.create(:cancelled_contribution, campaign: campaign) }
+      let!(:contribution2) { FactoryBot.create(:cancelled_contribution, campaign: campaign) }
 
       it 'does not cancel any contributions' do
         campaign.contributions.each do |d|
@@ -779,9 +779,9 @@ RSpec.describe Campaign, type: :model do
   end
 
   context 'for a cancelling campaign' do
-    let (:campaign) { FactoryGirl.create(:cancelling_campaign) }
-    let!(:contribution1) { FactoryGirl.create(:collected_contribution, campaign: campaign) }
-    let!(:contribution2) { FactoryGirl.create(:collected_contribution, campaign: campaign) }
+    let (:campaign) { FactoryBot.create(:cancelling_campaign) }
+    let!(:contribution1) { FactoryBot.create(:collected_contribution, campaign: campaign) }
+    let!(:contribution2) { FactoryBot.create(:collected_contribution, campaign: campaign) }
 
     describe '#cancel_contributions' do
       it 'returns true' do
@@ -804,13 +804,13 @@ RSpec.describe Campaign, type: :model do
   end
 
   context 'for a collecting campaign' do
-    let (:campaign) { FactoryGirl.create(:collecting_campaign) }
-    let!(:contribution1) { FactoryGirl.create(:collected_contribution, campaign: campaign, amount: 100) }
-    let!(:contribution2) { FactoryGirl.create(:collected_contribution, campaign: campaign, amount: 125) }
-    let!(:contribution3) { FactoryGirl.create(:collected_contribution, campaign: campaign, amount: 75) }
-    let!(:payment1) { FactoryGirl.create(:payment, contribution: contribution1) }
-    let!(:payment2) { FactoryGirl.create(:payment, contribution: contribution2) }
-    let!(:payment3) { FactoryGirl.create(:payment, contribution: contribution3) }
+    let (:campaign) { FactoryBot.create(:collecting_campaign) }
+    let!(:contribution1) { FactoryBot.create(:collected_contribution, campaign: campaign, amount: 100) }
+    let!(:contribution2) { FactoryBot.create(:collected_contribution, campaign: campaign, amount: 125) }
+    let!(:contribution3) { FactoryBot.create(:collected_contribution, campaign: campaign, amount: 75) }
+    let!(:payment1) { FactoryBot.create(:payment, contribution: contribution1) }
+    let!(:payment2) { FactoryBot.create(:payment, contribution: contribution2) }
+    let!(:payment3) { FactoryBot.create(:payment, contribution: contribution3) }
 
     describe '#collect_contributions' do
       context 'when all contributions are collected successfully' do

@@ -30,7 +30,7 @@ RSpec.describe SubscribersController, type: :controller do
   end
 
   describe 'GET #show' do
-    let (:subscriber) { FactoryGirl.create(:subscriber) }
+    let (:subscriber) { FactoryBot.create(:subscriber) }
 
     it 'is successful' do
       get :show, id: subscriber

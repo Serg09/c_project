@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe BookVersion, type: :model do
-  let (:book) { FactoryGirl.create(:book) }
+  let (:book) { FactoryBot.create(:book) }
   let (:image_file) do
     image_mock('image/jpeg', 'spec', 'fixtures', 'files', 'author_photo.jpg')
   end
@@ -89,10 +89,10 @@ RSpec.describe BookVersion, type: :model do
   end
 
   describe '#genres' do
-    let (:g1) { FactoryGirl.create(:genre) }
-    let (:g2) { FactoryGirl.create(:genre) }
-    let (:g3) { FactoryGirl.create(:genre) }
-    let (:g4) { FactoryGirl.create(:genre) }
+    let (:g1) { FactoryBot.create(:genre) }
+    let (:g2) { FactoryBot.create(:genre) }
+    let (:g3) { FactoryBot.create(:genre) }
+    let (:g4) { FactoryBot.create(:genre) }
 
     it 'is a list of genres to which the book belongs' do
       book = BookVersion.new attributes
@@ -150,9 +150,9 @@ RSpec.describe BookVersion, type: :model do
   end
 
   describe '#new_copy' do
-    let (:genre1) { FactoryGirl.create(:genre) }
-    let (:genre2) { FactoryGirl.create(:genre) }
-    let (:source) { FactoryGirl.create(:approved_book_version, genres: [genre1, genre2]) }
+    let (:genre1) { FactoryBot.create(:genre) }
+    let (:genre2) { FactoryBot.create(:genre) }
+    let (:source) { FactoryBot.create(:approved_book_version, genres: [genre1, genre2]) }
     let (:copy) { source.new_copy }
     it 'returns a new instance of BookVersion' do
       expect(copy).to be_a BookVersion
@@ -188,7 +188,7 @@ RSpec.describe BookVersion, type: :model do
   end
 
   describe '#approve!' do
-    let (:version) { FactoryGirl.create(:pending_book_version) }
+    let (:version) { FactoryBot.create(:pending_book_version) }
 
     it 'sets the status of the book version to approved' do
       version.approve!
@@ -205,9 +205,9 @@ RSpec.describe BookVersion, type: :model do
     end
 
     context 'when another approved version exists' do
-      let (:book) { FactoryGirl.create(:approved_book) }
+      let (:book) { FactoryBot.create(:approved_book) }
       let!(:approved_version) { book.approved_version }
-      let!(:pending_version) { FactoryGirl.create(:pending_book_version, book: book) }
+      let!(:pending_version) { FactoryBot.create(:pending_book_version, book: book) }
       it 'sets the status of the existing approved version to "superseded"' do
         pending_version.approve!
         expect(approved_version).to be_superseded
@@ -216,7 +216,7 @@ RSpec.describe BookVersion, type: :model do
   end
 
   describe '#reject!' do
-    let (:version) { FactoryGirl.create(:pending_book_version) }
+    let (:version) { FactoryBot.create(:pending_book_version) }
 
     it 'sets the status of the book version to rejected' do
       version.reject!

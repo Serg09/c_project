@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
   include Devise::TestHelpers
 
-  let (:user) { FactoryGirl.create(:user, email: 'john@doe.com') }
+  let (:user) { FactoryBot.create(:user, email: 'john@doe.com') }
 
   context 'for an authenticated user' do
 
@@ -48,7 +48,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     context 'that is not the user in question' do
-      let (:other_user) { FactoryGirl.create(:user) }
+      let (:other_user) { FactoryBot.create(:user) }
       before(:each) { sign_in other_user }
 
       describe 'get :show' do
@@ -111,7 +111,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     describe 'get :unsubscribe' do
-      let!(:user) { FactoryGirl.create(:user) }
+      let!(:user) { FactoryBot.create(:user) }
 
       context 'with a valid token' do
         it 'is successful' do

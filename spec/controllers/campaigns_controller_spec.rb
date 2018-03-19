@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe CampaignsController, type: :controller do
-  let (:author) { FactoryGirl.create(:user) }
-  let (:book) { FactoryGirl.create(:approved_book, author: author) }
-  let (:campaign) { FactoryGirl.create(:campaign, book: book) }
+  let (:author) { FactoryBot.create(:user) }
+  let (:book) { FactoryBot.create(:approved_book, author: author) }
+  let (:campaign) { FactoryBot.create(:campaign, book: book) }
   let (:attributes) do
     {
       target_date: '4/30/2016',
@@ -80,7 +80,7 @@ RSpec.describe CampaignsController, type: :controller do
       end
 
       context 'for an unstarted campaign' do
-        let (:campaign) { FactoryGirl.create(:unstarted_campaign, book: book) }
+        let (:campaign) { FactoryBot.create(:unstarted_campaign, book: book) }
 
         context 'with a valid start date' do
           context 'and terms agreement' do
@@ -137,7 +137,7 @@ RSpec.describe CampaignsController, type: :controller do
         context 'with an invalid start date' do
           let (:campaign) do
             Timecop.freeze(Chronic.parse('2016-01-15')) do
-              FactoryGirl.create(:unstarted_campaign, book: book,
+              FactoryBot.create(:unstarted_campaign, book: book,
                                  target_date: '2016-03-01')
             end
           end
@@ -164,7 +164,7 @@ RSpec.describe CampaignsController, type: :controller do
       end
 
       context 'for an active campaign' do
-        let!(:campaign) { FactoryGirl.create(:active_campaign, book: book, target_date: Date.new(2016, 4, 30)) }
+        let!(:campaign) { FactoryBot.create(:active_campaign, book: book, target_date: Date.new(2016, 4, 30)) }
 
         describe 'patch :collect' do
           it 'redirects to the campaign progress page' do
@@ -218,7 +218,7 @@ RSpec.describe CampaignsController, type: :controller do
         end
 
         context 'that has been prolonged' do
-          let (:campaign) { FactoryGirl.create(:active_campaign, book: book, prolonged: true) }
+          let (:campaign) { FactoryBot.create(:active_campaign, book: book, prolonged: true) }
 
           describe 'patch :prolong' do
             it 'redirects to the campaign show page' do
@@ -266,7 +266,7 @@ RSpec.describe CampaignsController, type: :controller do
     end
 
     context 'that does not own the book' do
-      let (:other_user) { FactoryGirl.create(:user) }
+      let (:other_user) { FactoryBot.create(:user) }
       before(:each) { sign_in other_user  }
 
       describe "get :index" do

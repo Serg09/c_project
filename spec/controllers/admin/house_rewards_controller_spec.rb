@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Admin::HouseRewardsController, type: :controller do
-  let (:house_reward) { FactoryGirl.create(:house_reward) }
+  let (:house_reward) { FactoryBot.create(:house_reward) }
   let (:attributes) do
     {
       description: 'Jelly of the Month Club Membership',
@@ -10,7 +10,7 @@ RSpec.describe Admin::HouseRewardsController, type: :controller do
   end
 
   context 'for an authenticated administrator' do
-    let (:admin) { FactoryGirl.create(:administrator) }
+    let (:admin) { FactoryBot.create(:administrator) }
     before(:each) { sign_in admin }
 
     describe "get :index" do

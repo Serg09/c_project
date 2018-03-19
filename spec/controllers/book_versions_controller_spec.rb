@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe BookVersionsController, type: :controller do
-  let (:author) { FactoryGirl.create(:user) }
-  let (:book) { FactoryGirl.create(:approved_book, author: author) }
+  let (:author) { FactoryBot.create(:user) }
+  let (:book) { FactoryBot.create(:approved_book, author: author) }
   let (:approved_version) { book.approved_version }
-  let (:pending_version) { FactoryGirl.create(:pending_book_version, book: book) }
-  let (:rejected_book) { FactoryGirl.create(:rejected_book, author: author) }
+  let (:pending_version) { FactoryBot.create(:pending_book_version, book: book) }
+  let (:rejected_book) { FactoryBot.create(:rejected_book, author: author) }
   let (:rejected_version) { rejected_book.rejected_version }
 
   let (:attributes) do
@@ -64,9 +64,9 @@ RSpec.describe BookVersionsController, type: :controller do
         end
 
         describe 'patch :update' do
-          let (:g1) { FactoryGirl.create(:genre) }
-          let (:g2) { FactoryGirl.create(:genre) }
-          let (:g3) { FactoryGirl.create(:genre) }
+          let (:g1) { FactoryBot.create(:genre) }
+          let (:g2) { FactoryBot.create(:genre) }
+          let (:g3) { FactoryBot.create(:genre) }
 
           it 'redirects to the book page' do
             patch :update, id: pending_version, book_version: attributes
@@ -81,7 +81,7 @@ RSpec.describe BookVersionsController, type: :controller do
           end
 
           it 'handles the genres correctly' do
-            version = FactoryGirl.create(:pending_book_version, book: book, genres: [g1, g2])
+            version = FactoryBot.create(:pending_book_version, book: book, genres: [g1, g2])
             patch :update, id: version, book_version: attributes.merge(genres: [g2.id, g3.id])
             version.reload
             expect(version.genres.map(&:id)).to eq [g2.id, g3.id]
@@ -191,7 +191,7 @@ RSpec.describe BookVersionsController, type: :controller do
     end # context: that owns the book
 
     context 'that does not own the book' do
-      let (:other_user) { FactoryGirl.create(:user) }
+      let (:other_user) { FactoryBot.create(:user) }
       before(:each) { sign_in other_user }
 
       describe 'get :new' do

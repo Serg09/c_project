@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Payment, type: :model do
-  let (:contribution) { FactoryGirl.create(:contribution) }
+  let (:contribution) { FactoryBot.create(:contribution) }
   let (:attributes) do
     {
       amount: contribution.amount,
@@ -46,7 +46,7 @@ RSpec.describe Payment, type: :model do
   end
 
   describe '#transactions' do
-    let (:payment) { FactoryGirl.create(:approved_payment) }
+    let (:payment) { FactoryBot.create(:approved_payment) }
     it 'contains a list of transactions with the payment provider' do
       expect(payment.transactions.count).to eq 1
     end
@@ -130,7 +130,7 @@ RSpec.describe Payment, type: :model do
   end
 
   context 'for a pending payment' do
-    let (:payment) { FactoryGirl.create(:pending_payment) }
+    let (:payment) { FactoryBot.create(:pending_payment) }
 
     describe '#execute!' do
       it 'calls the payment provider to execute the payment' do
@@ -207,7 +207,7 @@ RSpec.describe Payment, type: :model do
 
     describe '#refund' do
       it_behaves_like 'a non-refundable payment' do
-        let!(:payment) { FactoryGirl.create(:pending_payment) }
+        let!(:payment) { FactoryBot.create(:pending_payment) }
       end
     end
   end
@@ -215,30 +215,30 @@ RSpec.describe Payment, type: :model do
   context 'for an approved payment' do
     describe '#execute' do
       it_behaves_like 'a non-executable payment' do
-        let!(:payment) { FactoryGirl.create(:approved_payment) }
+        let!(:payment) { FactoryBot.create(:approved_payment) }
       end
     end
 
     describe '#refund' do
       it_behaves_like 'a refundable payment' do
-        let!(:payment) { FactoryGirl.create(:approved_payment) }
+        let!(:payment) { FactoryBot.create(:approved_payment) }
       end
     end
   end
 
   context 'for a completed payment' do
-    let!(:payment) { FactoryGirl.create(:completed_payment) }
+    let!(:payment) { FactoryBot.create(:completed_payment) }
 
     describe '#execute' do
       it_behaves_like 'a non-executable payment' do
         # TODO Fix this, add amount to payment and put specific values in the test
-        let!(:payment) { FactoryGirl.create(:completed_payment) }
+        let!(:payment) { FactoryBot.create(:completed_payment) }
       end
     end
 
     describe '#refund' do
       it_behaves_like 'a refundable payment' do
-        let!(:payment) { FactoryGirl.create(:completed_payment) }
+        let!(:payment) { FactoryBot.create(:completed_payment) }
       end
     end
   end
@@ -246,24 +246,24 @@ RSpec.describe Payment, type: :model do
   context 'for a failed payment' do
     describe '#execute' do
       it_behaves_like 'a non-executable payment' do
-        let!(:payment) { FactoryGirl.create(:failed_payment) }
+        let!(:payment) { FactoryBot.create(:failed_payment) }
       end
     end
 
     describe '#refund' do
       it_behaves_like 'a non-refundable payment' do
-        let!(:payment) { FactoryGirl.create(:failed_payment) }
+        let!(:payment) { FactoryBot.create(:failed_payment) }
       end
     end
   end
 
   shared_context :stateful_payments do
-    let!(:pending1) { FactoryGirl.create(:pending_payment) }
-    let!(:pending2) { FactoryGirl.create(:pending_payment) }
-    let!(:approved1) { FactoryGirl.create(:approved_payment) }
-    let!(:approved2) { FactoryGirl.create(:approved_payment) }
-    let!(:failed1) { FactoryGirl.create(:failed_payment) }
-    let!(:failed2) { FactoryGirl.create(:failed_payment) }
+    let!(:pending1) { FactoryBot.create(:pending_payment) }
+    let!(:pending2) { FactoryBot.create(:pending_payment) }
+    let!(:approved1) { FactoryBot.create(:approved_payment) }
+    let!(:approved2) { FactoryBot.create(:approved_payment) }
+    let!(:failed1) { FactoryBot.create(:failed_payment) }
+    let!(:failed2) { FactoryBot.create(:failed_payment) }
   end
 
   describe '::pending' do

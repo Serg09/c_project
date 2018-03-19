@@ -1,21 +1,21 @@
 Given /^(#{USER}) submitted a book titled "([^"]+)" on (#{DATE})$/ do |user, title, date|
-  FactoryGirl.create(:pending_book, author: user, title: title, created_at: date)
+  FactoryBot.create(:pending_book, author: user, title: title, created_at: date)
 end
 
 Given /^(#{USER}) has an approved book titled "([^"]+)"$/ do |user, title|
-  FactoryGirl.create(:approved_book, author: user, title: title)
+  FactoryBot.create(:approved_book, author: user, title: title)
 end
 
 Given /^(#{USER}) has a book titled "([^"]+)"$/ do |user, title|
-  FactoryGirl.create(:approved_book, author: user, title: title)
+  FactoryBot.create(:approved_book, author: user, title: title)
 end
 
 Given /^(#{AUTHOR}) has a book titled "([^"]+)"$/ do |author, title|
-  FactoryGirl.create(:approved_book, author: author, title: title)
+  FactoryBot.create(:approved_book, author: author, title: title)
 end
 
 Given /^there is a book titled "([^"]+)"$/ do |title|
-  FactoryGirl.create(:approved_book, title: title)
+  FactoryBot.create(:approved_book, title: title)
 end
 
 Given /^users have submitted the following books$/ do |table|
@@ -24,7 +24,7 @@ Given /^users have submitted the following books$/ do |table|
     Hash[*keys.zip(attr).flatten]
   end.each do |book_attributes|
     user = find_or_create_user_by_full_name(book_attributes[:author], with_bio: true)
-    book = FactoryGirl.create(:approved_book, book_attributes.merge(author: user))
+    book = FactoryBot.create(:approved_book, book_attributes.merge(author: user))
   end
 end
 

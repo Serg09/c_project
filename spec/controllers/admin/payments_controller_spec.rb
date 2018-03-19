@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Admin::PaymentsController, type: :controller do
-  let (:payment) { FactoryGirl.create(:payment) }
+  let (:payment) { FactoryBot.create(:payment) }
 
   context 'for an authenticated administrator' do
-    let (:admin) { FactoryGirl.create(:administrator) }
+    let (:admin) { FactoryBot.create(:administrator) }
     before(:each) { sign_in admin }
 
     describe "GET #show" do

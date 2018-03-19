@@ -65,15 +65,15 @@ RSpec.describe Author, type: :model do
 
   describe '::by_name' do
     let!(:a1) do
-      FactoryGirl.create :author, last_name: 'Smith',
+      FactoryBot.create :author, last_name: 'Smith',
                                   first_name: 'Steve'
     end
     let!(:a2) do
-      FactoryGirl.create :author, last_name: 'Smith',
+      FactoryBot.create :author, last_name: 'Smith',
                                   first_name: 'Andrew'
     end
     let!(:a3) do
-      FactoryGirl.create :author, last_name: 'Anderson',
+      FactoryBot.create :author, last_name: 'Anderson',
                                   first_name: 'Aaron'
     end
     it 'lists authors by last name, the first name alphabeticaly order' do

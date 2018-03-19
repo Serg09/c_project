@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe Admin::InquiriesController do
 
-  let (:inquiry) { FactoryGirl.create(:inquiry) }
+  let (:inquiry) { FactoryBot.create(:inquiry) }
 
   context 'for an administrator' do
-    let (:admin) { FactoryGirl.create(:administrator) }
+    let (:admin) { FactoryBot.create(:administrator) }
     before(:each) { sign_in admin }
 
     describe 'get :index' do

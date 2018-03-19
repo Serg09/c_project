@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Admin::SubscribersController, type: :controller do
 
   context 'for an authenticate administrator' do
-    let (:admin) { FactoryGirl.create(:administrator) }
+    let (:admin) { FactoryBot.create(:administrator) }
     before(:each) { sign_in admin }
 
     describe "GET #index" do

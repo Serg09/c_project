@@ -12,16 +12,16 @@ Given /^the (#{CAMPAIGN}) has received the following contributions$/ do |campaig
     recipient = values.delete(:recipient)
 
     # TODO we'll need to add support for contributions with deferred collection later
-    contribution = FactoryGirl.create(:contribution, values.merge(campaign: campaign, state: 'collected'))
+    contribution = FactoryBot.create(:contribution, values.merge(campaign: campaign, state: 'collected'))
 
     address = address_string.present? ? parse_address(address_string) : {}
-    FactoryGirl.create(:payment, contribution: contribution)
+    FactoryBot.create(:payment, contribution: contribution)
 
     if reward_description.present?
       reward = campaign.rewards.find_by(description: reward_description)
       expect(reward).not_to be_nil
       if reward.physical_address_required?
-        FactoryGirl.create(:physical_fulfillment, contribution: contribution,
+        FactoryBot.create(:physical_fulfillment, contribution: contribution,
                                                   reward: reward,
                                                   recipient: recipient,
                                                   address1: address[:line1],
@@ -30,7 +30,7 @@ Given /^the (#{CAMPAIGN}) has received the following contributions$/ do |campaig
                                                   state: address[:state],
                                                   postal_code: address[:postal_code])
       else
-        FactoryGirl.create(:electronic_fulfillment, contribution: contribution,
+        FactoryBot.create(:electronic_fulfillment, contribution: contribution,
                                                     reward: reward,
                                                     email: values[:email])
       end

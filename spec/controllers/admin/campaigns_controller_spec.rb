@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Admin::CampaignsController, type: :controller do
-  let (:admin) { FactoryGirl.create(:administrator) }
-  let (:campaign) { FactoryGirl.create(:campaign) }
+  let (:admin) { FactoryBot.create(:administrator) }
+  let (:campaign) { FactoryBot.create(:campaign) }
 
   context 'for an authenticated administrator' do
     before(:each) { sign_in admin }

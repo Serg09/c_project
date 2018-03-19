@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let (:user) { FactoryGirl.create(:user) }
+  let (:user) { FactoryBot.create(:user) }
 
   let (:attributes) do
     {
@@ -109,7 +109,7 @@ RSpec.describe User, type: :model do
     end
 
     context 'when the user has an approved bio' do
-      let!(:bio) { FactoryGirl.create(:approved_bio, author: user) }
+      let!(:bio) { FactoryBot.create(:approved_bio, author: user) }
 
       it 'returns the approved bio' do
         expect(user.working_bio.try(:id)).to eq(bio.id)
@@ -117,7 +117,7 @@ RSpec.describe User, type: :model do
     end
 
     context 'when the user has a pending bio' do
-      let!(:bio) { FactoryGirl.create(:pending_bio, author: user) }
+      let!(:bio) { FactoryBot.create(:pending_bio, author: user) }
 
       it 'returns the pending bio' do
         expect(user.working_bio.try(:id)).to eq(bio.id)
@@ -125,15 +125,15 @@ RSpec.describe User, type: :model do
     end
 
     context 'when the user has an approved bio and a more recent pending bio' do
-      let!(:a) { FactoryGirl.create(:approved_bio, author: user) }
-      let!(:p) { FactoryGirl.create(:pending_bio, author: user) }
+      let!(:a) { FactoryBot.create(:approved_bio, author: user) }
+      let!(:p) { FactoryBot.create(:pending_bio, author: user) }
 
       it 'returns the pending bio' do
         expect(user.working_bio.try(:id)).to eq p.id
       end
     end
     context 'when the user has a rejected bio' do
-      let!(:bio) { FactoryGirl.create(:rejected_bio, author: user) }
+      let!(:bio) { FactoryBot.create(:rejected_bio, author: user) }
 
       it 'returns nil' do
         expect(user.working_bio).to be_nil
@@ -149,7 +149,7 @@ RSpec.describe User, type: :model do
     end
 
     context 'for an user with an approved bio' do
-      let!(:bio) { FactoryGirl.create(:approved_bio, author: user) }
+      let!(:bio) { FactoryBot.create(:approved_bio, author: user) }
 
       it 'returns the approved bio' do
         expect(user.active_bio.try(:id)).to eq(bio.id)
@@ -157,8 +157,8 @@ RSpec.describe User, type: :model do
     end
 
     context 'for an user with multiple approved bios' do
-      let!(:b1) { FactoryGirl.create(:approved_bio, author: user) }
-      let!(:b2) { FactoryGirl.create(:approved_bio, author: user) }
+      let!(:b1) { FactoryBot.create(:approved_bio, author: user) }
+      let!(:b2) { FactoryBot.create(:approved_bio, author: user) }
 
       it 'returns the must recently approved bio' do
         expect(user.active_bio.try(:id)).to eq b2.id
@@ -173,7 +173,7 @@ RSpec.describe User, type: :model do
       end
     end
     context 'for an user with a pending bio' do
-      let!(:bio) { FactoryGirl.create(:pending_bio, author: user) }
+      let!(:bio) { FactoryBot.create(:pending_bio, author: user) }
 
       it 'returns the pending bio' do
         expect(user.pending_bio.try(:id)).to eq bio.id

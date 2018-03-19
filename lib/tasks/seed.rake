@@ -6,7 +6,7 @@ namespace :seed do
 
   desc 'Create an author named John Doe'
   task johndoe: :environment do
-    FactoryGirl.create(:author, first_name: 'John',
+    FactoryBot.create(:author, first_name: 'John',
                                 last_name: 'Doe',
                                 email: 'john@doe.com')
   end
@@ -16,7 +16,7 @@ namespace :seed do
     count = (ENV['COUNT'] || 10).to_i
     logger.info "creating #{count} inquiries"
     (0..count).each do
-      i = FactoryGirl.create(:inquiry)
+      i = FactoryBot.create(:inquiry)
       logger.debug "created #{i.inspect}"
     end
   end
@@ -26,7 +26,7 @@ namespace :seed do
     count = (ENV['COUNT'] || 10).to_i
     logger.info "creating #{count} authors"
     (0..count).each do
-      i = FactoryGirl.create(:author)
+      i = FactoryBot.create(:author)
       logger.debug "created #{i.inspect}"
     end
   end
@@ -36,7 +36,7 @@ namespace :seed do
     count = (ENV['COUNT'] || 10).to_i
     logger.info "creating #{count} bios"
     (0..count).each do
-      i = FactoryGirl.create(:bio)
+      i = FactoryBot.create(:bio)
       logger.debug "created #{i.inspect}"
     end
   end
@@ -46,7 +46,7 @@ namespace :seed do
     count = (ENV['COUNT'] || 10).to_i
     logger.info "creating #{count} books"
     (0..count).each do
-      i = FactoryGirl.create(:pending_book)
+      i = FactoryBot.create(:pending_book)
       logger.debug "created #{i.inspect}"
     end
   end

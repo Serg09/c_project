@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Admin::BooksController, type: :controller do
-  let (:author) { FactoryGirl.create(:author) }
-  let (:genre) { FactoryGirl.create(:genre) }
-  let (:book) { FactoryGirl.create(:book, author: author) }
+  let (:author) { FactoryBot.create(:author) }
+  let (:genre) { FactoryBot.create(:genre) }
+  let (:book) { FactoryBot.create(:book, author: author) }
   let (:attributes) do
     {
       title: 'War and Peace',
@@ -14,7 +14,7 @@ RSpec.describe Admin::BooksController, type: :controller do
   end
 
   context 'for an authenticated administrator' do
-    let (:admin) { FactoryGirl.create(:administrator) }
+    let (:admin) { FactoryBot.create(:administrator) }
     before(:each) { sign_in admin }
 
     describe "GET #index" do
@@ -58,7 +58,7 @@ RSpec.describe Admin::BooksController, type: :controller do
     end
 
     describe 'DELETE #destroy' do
-      let!(:book) { FactoryGirl.create(:book, author: author) }
+      let!(:book) { FactoryBot.create(:book, author: author) }
 
       it 'redirects to the author books index page' do
         delete :destroy, id: book
@@ -121,7 +121,7 @@ RSpec.describe Admin::BooksController, type: :controller do
     end
 
     describe 'DELETE #destroy' do
-      let!(:book) { FactoryGirl.create(:book, author: author) }
+      let!(:book) { FactoryBot.create(:book, author: author) }
 
       it 'redirects to the home page' do
         delete :destroy, id: book
