@@ -54,7 +54,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
      :phone_number,
      :contactable,
      :topic].each do |a|
-       devise_parameter_sanitizer.for(:sign_up) << a
+
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:user])
      end
   end
 
