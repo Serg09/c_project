@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Admin::UsersController, type: :controller do
-  let (:user) { FactoryGirl.create(:user) }
-  let (:admin) { FactoryGirl.create(:administrator) }
+  let (:user) { FactoryBot.create(:user) }
+  let (:admin) { FactoryBot.create(:administrator) }
 
   context 'for an authenticated user' do
     before(:each) { sign_in user} 

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :book, aliases: [:approved_book] do
     transient do
       title { Faker::Book.title }
@@ -9,7 +9,7 @@ FactoryGirl.define do
     association :author, factory: :author_user
 
     after(:create) do |book, evaluator|
-      book.versions << FactoryGirl.create(:book_version,
+      book.versions << FactoryBot.create(:book_version,
                                           book: book,
                                           title: evaluator.title,
                                           short_description: evaluator.short_description,

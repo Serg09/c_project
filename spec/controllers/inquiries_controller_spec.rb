@@ -44,7 +44,7 @@ describe InquiriesController do
   end
 
   context 'for an authenticated user' do
-    let (:user) { FactoryGirl.create(:user) }
+    let (:user) { FactoryBot.create(:user) }
     before(:each) { sign_in user }
 
     describe 'get :new' do

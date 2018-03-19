@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
-  let (:author) { FactoryGirl.create(:user) }
-  let (:pending_book) { FactoryGirl.create(:pending_book, author: author) }
-  let (:approved_book) { FactoryGirl.create(:approved_book, author: author) }
-  let (:rejected_book) { FactoryGirl.create(:rejected_book, author: author) }
-  let (:genre) { FactoryGirl.create(:genre) }
+  let (:author) { FactoryBot.create(:user) }
+  let (:pending_book) { FactoryBot.create(:pending_book, author: author) }
+  let (:approved_book) { FactoryBot.create(:approved_book, author: author) }
+  let (:rejected_book) { FactoryBot.create(:rejected_book, author: author) }
+  let (:genre) { FactoryBot.create(:genre) }
   let (:book_version_attributes) do
     {
       title: 'My book',
@@ -45,8 +45,8 @@ RSpec.describe BooksController, type: :controller do
     end
 
     describe 'post :create' do
-      let!(:genre1) { FactoryGirl.create(:genre) }
-      let!(:genre2) { FactoryGirl.create(:genre) }
+      let!(:genre1) { FactoryBot.create(:genre) }
+      let!(:genre2) { FactoryBot.create(:genre) }
 
       it 'redirects to the book page' do
         post :create, author_id: author, book: book_version_attributes
@@ -165,7 +165,7 @@ RSpec.describe BooksController, type: :controller do
     end
 
     context 'that does not own the book' do
-      let (:other_user) { FactoryGirl.create(:user) }
+      let (:other_user) { FactoryBot.create(:user) }
       before(:each) { sign_in other_user }
 
       context 'that is pending approval' do

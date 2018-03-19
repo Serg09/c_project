@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Admin::FulfillmentsController, type: :controller do
   context 'for an authenticated administrator' do
-    let (:admin) { FactoryGirl.create(:administrator) }
+    let (:admin) { FactoryBot.create(:administrator) }
     before(:each) { sign_in admin }
 
     describe 'get :index' do
@@ -13,7 +13,7 @@ RSpec.describe Admin::FulfillmentsController, type: :controller do
     end
 
     describe 'patch :fulfill' do
-      let!(:fulfillment) { FactoryGirl.create(:electronic_fulfillment) }
+      let!(:fulfillment) { FactoryBot.create(:electronic_fulfillment) }
 
       it 'redirects to the index page' do
         patch :fulfill, id: fulfillment
@@ -38,7 +38,7 @@ RSpec.describe Admin::FulfillmentsController, type: :controller do
     end
 
     describe 'patch :fulfill' do
-      let!(:fulfillment) { FactoryGirl.create(:electronic_fulfillment) }
+      let!(:fulfillment) { FactoryBot.create(:electronic_fulfillment) }
 
       it 'redirects to the welcome page' do
         patch :fulfill, id: fulfillment

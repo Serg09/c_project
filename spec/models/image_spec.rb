@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Image, type: :model do
-  let (:user) { FactoryGirl.create(:user) }
-  let (:image_binary) { FactoryGirl.create(:image_binary) }
+  let (:user) { FactoryBot.create(:user) }
+  let (:image_binary) { FactoryBot.create(:image_binary) }
   let (:attributes) do
     {
       owner_id: user.id,

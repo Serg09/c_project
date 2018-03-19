@@ -5,10 +5,10 @@ module ContentHelpers
     last_name = user_match[2]
     user = User.find_by(first_name: first_name,
                         last_name: last_name)
-    user ||= FactoryGirl.create(:user, first_name: first_name,
+    user ||= FactoryBot.create(:user, first_name: first_name,
                                        last_name: last_name)
     if options[:with_bio] && !user.active_bio
-      FactoryGirl.create :approved_bio, author: user
+      FactoryBot.create :approved_bio, author: user
     end
 
     user

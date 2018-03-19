@@ -9,15 +9,15 @@ Given /^(#{USER}) submitted the following bio on (#{DATE})$/ do |user, date, tab
     hash[key] = row[1]
     hash
   end
-  FactoryGirl.create(:bio, author: user,
+  FactoryBot.create(:bio, author: user,
                            created_at: date,
                            text: values[:text])
 end
 
 Given /^(#{USER}) has an approved bio$/ do |user|
-  FactoryGirl.create(:approved_bio, author: user)
+  FactoryBot.create(:approved_bio, author: user)
 end
 
 Given /^(#{AUTHOR}) has a bio$/ do |author|
-  FactoryGirl.create(:approved_bio, author: author)
+  FactoryBot.create(:approved_bio, author: author)
 end

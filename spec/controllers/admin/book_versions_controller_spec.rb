@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Admin::BookVersionsController, type: :controller do
-  let (:author) { FactoryGirl.create(:user) }
-  let (:book) { FactoryGirl.create(:pending_book, author: author) }
+  let (:author) { FactoryBot.create(:user) }
+  let (:book) { FactoryBot.create(:pending_book, author: author) }
   let (:pending_book_version) { book.pending_version }
   let (:rejection_attributes) do
     {
@@ -12,9 +12,9 @@ RSpec.describe Admin::BookVersionsController, type: :controller do
 
 
   shared_context 'administrative book' do
-    let (:author) { FactoryGirl.create(:author) }
-    let (:book) { FactoryGirl.create(:book, author: author) }
-    let (:book_version) { FactoryGirl.create(:approved_book_version, book: book) }
+    let (:author) { FactoryBot.create(:author) }
+    let (:book) { FactoryBot.create(:book, author: author) }
+    let (:book_version) { FactoryBot.create(:approved_book_version, book: book) }
     let (:attributes) do
       {
         title: 'War and Peace',
@@ -25,7 +25,7 @@ RSpec.describe Admin::BookVersionsController, type: :controller do
   end
 
   context 'for an authenticated administrator' do
-    let (:admin) { FactoryGirl.create(:administrator) }
+    let (:admin) { FactoryBot.create(:administrator) }
     before(:each) { sign_in admin }
 
     describe 'get :index' do

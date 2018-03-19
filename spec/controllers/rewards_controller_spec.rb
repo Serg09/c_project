@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe RewardsController, type: :controller do
-  let (:campaign) { FactoryGirl.create(:campaign) }
-  let (:reward) { FactoryGirl.create(:reward, campaign: campaign) }
+  let (:campaign) { FactoryBot.create(:campaign) }
+  let (:reward) { FactoryBot.create(:reward, campaign: campaign) }
   let (:attributes) do
     {
       description: 'Endless gratitude',
@@ -74,9 +74,9 @@ RSpec.describe RewardsController, type: :controller do
       end
 
       context 'for a reward that is associated at least one contribution' do
-        let (:contribution) { FactoryGirl.create(:contribution, campaign: campaign) }
+        let (:contribution) { FactoryBot.create(:contribution, campaign: campaign) }
         let!(:fulfillment) do
-          FactoryGirl.create(:electronic_fulfillment, contribution: contribution,
+          FactoryBot.create(:electronic_fulfillment, contribution: contribution,
                                                       reward: reward)
         end
 
@@ -118,7 +118,7 @@ RSpec.describe RewardsController, type: :controller do
     end
 
     context 'that does not own the campaign' do
-      let (:other_user) { FactoryGirl.create(:user) }
+      let (:other_user) { FactoryBot.create(:user) }
       before(:each) { sign_in other_user }
 
       describe "GET #new" do
@@ -237,11 +237,11 @@ RSpec.describe RewardsController, type: :controller do
     describe 'GET #index' do
       context 'in JSON' do
         let!(:reward1) do
-          FactoryGirl.create(:reward, campaign: campaign,
+          FactoryBot.create(:reward, campaign: campaign,
                                       description: 'Total conciousness')
         end
         let!(:reward2) do
-          FactoryGirl.create(:reward, campaign: campaign,
+          FactoryBot.create(:reward, campaign: campaign,
                                       description: 'Sharp stick in the eye')
         end
         it 'returns the rewards for the specified campaign' do

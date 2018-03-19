@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :campaign, aliases: [:active_campaign] do
     book
     target_amount 1_234

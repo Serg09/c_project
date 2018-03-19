@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :bio, aliases: [:pending_bio] do
     association :author, factory: :user
     text { Faker::Lorem.paragraphs(3).join("\n")}

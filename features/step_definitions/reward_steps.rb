@@ -10,6 +10,6 @@ Given /^the (#{CAMPAIGN}) has the following rewards$/ do |campaign, table|
       values[:house_reward_id] = record.id
       values[:physical_address_required] = record.physical_address_required
     end
-    FactoryGirl.create(:reward, values.merge(campaign: campaign))
+    FactoryBot.create(:reward, values.merge(campaign: campaign))
   end
 end

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :payment, aliases: [:approved_payment] do
     transient do
       sale_id { Faker::Number.hexadecimal(20) }
@@ -15,7 +15,7 @@ FactoryGirl.define do
         state: payment.state,
         intent: 'sale',
       }.to_json
-      FactoryGirl.create(:payment_transaction, payment: payment, response: transaction)
+      FactoryBot.create(:payment_transaction, payment: payment, response: transaction)
     end
 
     factory :completed_payment do

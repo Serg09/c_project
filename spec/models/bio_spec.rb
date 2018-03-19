@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Bio, type: :model do
-  let (:author) { FactoryGirl.create(:user) }
-  let (:photo) { FactoryGirl.create(:image, owner: author) }
+  let (:author) { FactoryBot.create(:user) }
+  let (:photo) { FactoryBot.create(:image, owner: author) }
   let (:attributes) do
     {
       author_id: author.id,
@@ -94,7 +94,7 @@ RSpec.describe Bio, type: :model do
   end
 
   describe '#approve!' do
-    let (:bio) { FactoryGirl.create(:pending_bio) }
+    let (:bio) { FactoryBot.create(:pending_bio) }
 
     it 'changes the status to "approved"' do
       expect do
@@ -103,7 +103,7 @@ RSpec.describe Bio, type: :model do
     end
 
     context 'when an approved bio is already present' do
-      let (:current_bio) { FactoryGirl.create(:approved_bio, author: bio.author) }
+      let (:current_bio) { FactoryBot.create(:approved_bio, author: bio.author) }
 
       it 'changes the status of the previously approved bio to "superseded"' do
         expect do
@@ -115,12 +115,12 @@ RSpec.describe Bio, type: :model do
   end
 
   shared_context :multiple_bios do
-    let!(:p1) { FactoryGirl.create(:bio) }
-    let!(:p2) { FactoryGirl.create(:bio) }
-    let!(:a1) { FactoryGirl.create(:approved_bio) }
-    let!(:a2) { FactoryGirl.create(:approved_bio) }
-    let!(:r1) { FactoryGirl.create(:rejected_bio) }
-    let!(:r2) { FactoryGirl.create(:rejected_bio) }
+    let!(:p1) { FactoryBot.create(:bio) }
+    let!(:p2) { FactoryBot.create(:bio) }
+    let!(:a1) { FactoryBot.create(:approved_bio) }
+    let!(:a2) { FactoryBot.create(:approved_bio) }
+    let!(:r1) { FactoryBot.create(:rejected_bio) }
+    let!(:r2) { FactoryBot.create(:rejected_bio) }
   end
 
   describe '::pending' do
@@ -180,33 +180,33 @@ RSpec.describe Bio, type: :model do
 
   describe '::browsable' do
     let (:author1) do
-      FactoryGirl.create :author, first_name: "Steven",
+      FactoryBot.create :author, first_name: "Steven",
                                   last_name: "King"
     end
     let (:author2) do
-      FactoryGirl.create :author, first_name: "Pat",
+      FactoryBot.create :author, first_name: "Pat",
                                   last_name: "Conroy"
     end
     let (:user1) do
-      FactoryGirl.create :user, first_name: "Jane",
+      FactoryBot.create :user, first_name: "Jane",
                                last_name: "Austen"
     end
     let (:user2) do
-      FactoryGirl.create :user, first_name: "William",
+      FactoryBot.create :user, first_name: "William",
                                last_name: "Wordsworth"
     end
     let!(:bios) do
       [user1, user2, author1, author2].map do |a|
-        FactoryGirl.create(:approved_bio, author: a)
+        FactoryBot.create(:approved_bio, author: a)
       end
     end
 
     let (:user_without_approved_bio) do
-      FactoryGirl.create :user, first_name: 'John',
+      FactoryBot.create :user, first_name: 'John',
                                 last_name: 'Doe'
     end
     let!(:unapproved_bio) do
-      FactoryGirl.create :pending_bio, author: user_without_approved_bio
+      FactoryBot.create :pending_bio, author: user_without_approved_bio
     end
 
 

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     transient do
       confirmed true
@@ -20,7 +20,7 @@ FactoryGirl.define do
 
     factory :author_user do
       after(:create) do |author, evaluator|
-        FactoryGirl.create(:approved_bio, author: author)
+        FactoryBot.create(:approved_bio, author: author)
       end
     end
   end

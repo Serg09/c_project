@@ -63,10 +63,10 @@ describe Inquiry do
   end
 
   shared_context :multiple do
-    let!(:a1) { FactoryGirl.create(:inquiry, first_name: 'Jane') }
-    let!(:a2) { FactoryGirl.create(:inquiry, first_name: 'John') }
-    let!(:v1) { FactoryGirl.create(:inquiry, first_name: 'Mike', archived: true) }
-    let!(:v2) { FactoryGirl.create(:inquiry, first_name: 'Mark', archived: true) }
+    let!(:a1) { FactoryBot.create(:inquiry, first_name: 'Jane') }
+    let!(:a2) { FactoryBot.create(:inquiry, first_name: 'John') }
+    let!(:v1) { FactoryBot.create(:inquiry, first_name: 'Mike', archived: true) }
+    let!(:v2) { FactoryBot.create(:inquiry, first_name: 'Mark', archived: true) }
   end
 
   describe '::active' do

@@ -1,5 +1,12 @@
 @import "twitter/bootstrap/bootstrap";
 
+// Set correct font paths
+@glyphiconsEotPath: font-url("glyphicons-halflings-regular.eot");
+@glyphiconsEotPath_iefix: font-url("glyphicons-halflings-regular.eot?#iefix");
+@glyphiconsWoffPath: font-url("glyphicons-halflings-regular.woff");
+@glyphiconsTtfPath: font-url("glyphicons-halflings-regular.ttf");
+@glyphiconsSvgPath: font-url("glyphicons-halflings-regular.svg#glyphicons_halflingsregular");
+
 // Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
 @fontAwesomeEotPath: font-url("fontawesome-webfont.eot");
 @fontAwesomeEotPath_iefix: font-url("fontawesome-webfont.eot?#iefix");
@@ -10,43 +17,8 @@
 // Font Awesome
 @import "fontawesome/font-awesome";
 
-@font-base-size: 18px;
-
-@navbar-height: 3.5em;
-@navbar-default-bg: #FFF;
-@navbar-default-link-color: #000;
-@navbar-default-link-active-color: #67B7E1;
-@navbar-default-link-active-bg: #FFF;
-@navbar-default-link-hover-color: #67B7E1;
-@navbar-padding-vertical: 1.7em;
-@nav-link-padding: 15px 15px;
-
-@btn-primary-bg: #00ADDE;
-
-@border-radius-base: 6px;
-@border-radius-small: 4px;
-@border-radius-large: 24px;
-
-@padding-base-vertical: 8px;
-@padding-xs-vertical: 2px;
-@padding-small-vertical: 6px;
-@padding-large-vertical: 15px;
-
-@padding-base-horizontal: 18px;
-@padding-xs-horizontal: 7px;
-@padding-small-horizontal: 15px;
-@padding-large-horizontal: 24px;
-
 // Glyphicons
-@import "twitter/bootstrap/glyphicons.less";
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: asset-url('glyphicons-halflings-regular.eot');
-  src: asset-url('glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
-  asset-url('glyphicons-halflings-regular.woff') format('woff'),
-  asset-url('glyphicons-halflings-regular.ttf') format('truetype'),
-  asset-url('glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
-}
+//@import "twitter/bootstrap/glyphicons.less";
 
 // Your custom LESS stylesheets goes here
 //
