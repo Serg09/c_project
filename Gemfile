@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
+# gem 'jquery-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
@@ -45,6 +46,7 @@ gem 'angularjs-rails'
 gem 'ng-rails-csrf'
 gem 'underscore-rails'
 gem 'social-share-button'
+gem 'thor', '0.19.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
