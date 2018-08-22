@@ -1,0 +1,291 @@
+/* line 3, /home/serg09/workspace/c_project/app/assets/stylesheets/buttons.scss */
+.btn {
+  text-transform: uppercase;
+}
+
+/* line 7, /home/serg09/workspace/c_project/app/assets/stylesheets/buttons.scss */
+.hero-btn, .sign-up-btn, .subscribe-btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  padding: .8em 2em;
+}
+
+/* line 4, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+section.welcome {
+  padding-top: 3em;
+  margin-bottom: -2em;
+  color: #000000;
+  font-family: "Quicksand", Arial, Helvetica, sans-serif;
+  font-size: 130%;
+  line-height: 24px;
+}
+/* line 7, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+section.welcome h1 {
+  color: #000000;
+  text-transform: capitalize;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 170%;
+  line-height: 48px;
+  padding-bottom: -.1em;
+}
+/* line 16, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+section.welcome h3 {
+  color: #F90;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 100%;
+}
+/* line 24, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+section.welcome p {
+  margin-top: 1.8em;
+}
+
+/* line 33, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+#top-section {
+  background-color: #ffffff;
+}
+
+/* line 37, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.larger {
+  font-size: 150%;
+  line-height: 110%;
+}
+
+/* line 42, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.quote-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+}
+
+/* line 47, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.sign-up-btn {
+  width: 12em;
+  margin-bottom: 9em;
+}
+
+/* line 53, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.subscribe-btn {
+  width: 12em;
+  margin-bottom: 10px;
+}
+
+/* line 59, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.mailchimp-form {
+  margin-top: 18px;
+  padding: 26px 20px;
+  max-width: 500px;
+  font-size: 20px;
+}
+
+/* line 66, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.mailchimp-btn {
+  background: #F6891F;
+  color: #fff;
+}
+
+/* line 71, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.welcome-icon {
+  padding-top: 1.5em;
+  padding-bottom: .5em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 77, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.youtube-border {
+  border: 3px solid #62a2c4;
+}
+
+/* line 81, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.help-image {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+/* line 86, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.pricing-container {
+  box-sizing: border-box;
+  width: 910px;
+  margin-top: 4em;
+  background: #F8F8F8;
+  padding: 9px;
+  margin-bottom: 4em;
+}
+
+/* line 95, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.pricing-table {
+  color: #333;
+}
+/* line 97, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.pricing-table h1 {
+  font-family: "Quicksand", Arial, Helvetica, sans-serif;
+  font-size: 150%;
+}
+/* line 101, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.pricing-table .price-column {
+  box-sizing: border-box;
+  width: 20%;
+  float: left;
+  border: solid 1px #000;
+  text-align: center;
+  background: #f4d0a1;
+  line-height: 20px;
+  color: #747474;
+}
+/* line 110, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.pricing-table .price-column p {
+  margin: 1em 1em;
+}
+/* line 113, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.pricing-table .price-column .unavailable {
+  text-decoration: line-through;
+  color: #FFF;
+}
+/* line 118, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.pricing-table .price-column .price-block {
+  color: #62a2c4;
+  font-size: 300%;
+  font-family: "Quicksand", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  line-height: 20px;
+  background: #fff;
+  height: 2em;
+  padding-top: 0.4em;
+}
+/* line 127, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.pricing-table .price-column .price-block span.currency {
+  position: relative;
+  font-size: 180%;
+  font-weight: normal;
+  color: #333;
+  top: -1em;
+  left: 0.8em;
+}
+/* line 135, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.pricing-table .price-column .price-block span.super {
+  position: relative;
+  vertical-align: super;
+  font-size: 150%;
+  left: -16px;
+  top: -10px;
+}
+/* line 143, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.pricing-table .price-column .price-block .note {
+  font-size: 90%;
+  font-weight: normal;
+  color: #888888;
+  line-height: 11px;
+  position: relative;
+  margin-left: -30px;
+}
+/* line 152, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.pricing-table .price-column .signup-block {
+  background: #FFF;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+/* line 156, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.pricing-table .price-column .signup-block .sign-up-btn {
+  width: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+/* line 167, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.a-la-carte {
+  color: #747474;
+}
+/* line 169, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.a-la-carte p {
+  margin-bottom: 20px;
+}
+/* line 171, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.a-la-carte p.action {
+  color: #3CC;
+  font-family: "Quicksand", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+/* line 179, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+blockquote {
+  color: #3CC;
+  font-family: "Quicksand", Arial, Helvetica, sans-serif;
+  font-size: 150%;
+  font-weight: bold;
+  line-height: 24px;
+  margin: 18px 0;
+  padding: 18px 0;
+  border-top: 2px solid #9A9A9A;
+  border-bottom: 2px solid #9A9A9A;
+  border-left: 0;
+  border-right: 0;
+}
+
+/* line 193, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.book-caption {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 215px;
+  height: 100%;
+  background: rgba(10, 7, 109, 0.8);
+  color: #FFF;
+  padding: 1em;
+  margin: 0;
+  display: none;
+}
+
+/* line 207, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.grid {
+  box-sizing: border-box;
+}
+
+/* line 210, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.grid-item {
+  box-sizing: border-box;
+  float: left;
+  width: 215px;
+  height: 218px;
+}
+
+/* line 216, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.grid-item--height2 {
+  height: 300px;
+}
+
+/* line 219, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.grid-item--height3 {
+  height: 332px;
+}
+
+/* line 222, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.grid-item--height4 {
+  height: 344px;
+}
+
+/* line 227, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.our-team .row .row {
+  margin-top: 2em;
+  font-size: 120%;
+}
+
+/* line 233, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.indent {
+  padding-left: 2em;
+}
+
+/* line 238, /home/serg09/workspace/c_project/app/assets/stylesheets/pages.scss */
+.a-la-carte table {
+  width: 90%;
+}

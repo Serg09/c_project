@@ -5,7 +5,7 @@ ruby File.read('.ruby-version').chomp
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
+# gem 'jquery-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
@@ -45,6 +46,7 @@ gem 'angularjs-rails'
 gem 'ng-rails-csrf'
 gem 'underscore-rails'
 gem 'social-share-button'
+gem 'thor', '0.19.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
